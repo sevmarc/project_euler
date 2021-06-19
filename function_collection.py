@@ -1,6 +1,6 @@
 from math import sqrt
 from math import gcd as bltin_gcd
-
+import time
 
 #-------------------------primes-------------------------
 def is_prime(x: int) -> bool:
@@ -47,3 +47,12 @@ def exp_by_squaring(x, n):
         return exp_by_squaring(x * x,  n / 2)
     else:
         return x * exp_by_squaring(x * x, (n - 1) / 2)
+
+def timer_wrapper(f, args=None):
+    start_time = time.time()
+    if args:
+        f(args)
+    else:
+        f()
+
+    print('Elapsed time: ', time.time() - start_time)
