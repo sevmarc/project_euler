@@ -51,8 +51,30 @@ def exp_by_squaring(x, n):
 def timer_wrapper(f, args=None):
     start_time = time.time()
     if args:
-        f(args)
+        a = f(args)
     else:
-        f()
-
+        a = f()
     print('Elapsed time: ', time.time() - start_time)
+    return a
+
+#-------------------------divisors-------------------------
+def proper_divisors(x:int):
+    return [i for i in range(1, int(x/2 + 1)) if x % i == 0]
+
+def proper_divisors_fast(x:int):
+    div = [1]  # everything is divisible by 1
+    looking_limit = int(x / 2 + 1)
+    current = 2
+
+    while current < looking_limit:
+        if x % current == 0:
+            div.append(current)
+            other_div = int(x / current)
+            div.append(other_div)
+            looking_limit = other_div
+        current += 1
+    return list(set(div))
+
+def is_perfect(x: int) -> bool:
+    return sum(proper_divisors_fast(x)) == x
+
