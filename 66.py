@@ -32,6 +32,7 @@ def find_min_dioph(D: int):
         x = 2
         while(not found):
             y = sqrt((1 - x * x) / (-D))
+            print(f'diff: {x*x - D * int(y)*int(y)}')
             if y.is_integer():
                 found = True
                 print(f"D: {D}, X: {x}, Y: {int(y)}")
@@ -52,11 +53,13 @@ def calc66():
     print(x)
     return x
 
-"""
+
 timer_wrapper(find_min_dioph, 2)
 timer_wrapper(find_min_dioph, 3)
 timer_wrapper(find_min_dioph, 5)
 timer_wrapper(find_min_dioph, 6)
 timer_wrapper(find_min_dioph, 7)
-"""
-timer_wrapper(calc66)
+timer_wrapper(find_min_dioph, 8)
+timer_wrapper(find_min_dioph, 9)
+
+# timer_wrapper(calc66)

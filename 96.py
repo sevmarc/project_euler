@@ -219,7 +219,7 @@ def calc96():
 
     for s in range(1, num_of_sudokus + 1):
         print(s)
-        x = Sudoku(load_sudoku("96_sudoku.txt", s), debug=False)
+        x = Sudoku(load_sudoku("inputfiles/96_sudoku.txt", s), debug=False)
         val = x.solve_sudoku()
         print(val)
         sum += val
