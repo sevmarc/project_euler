@@ -2,6 +2,17 @@ from math import sqrt
 from math import gcd as bltin_gcd
 import time
 
+
+#-------------------------functional-------------------------
+def timer_wrapper(f, args=None):
+    start_time = time.time()
+    if args:
+        a = f(args)
+    else:
+        a = f()
+    print('Elapsed time: ', time.time() - start_time)
+    return a
+
 #-------------------------primes-------------------------
 def is_prime(x: int) -> bool:
     """ Checks if a number is prime """
@@ -33,7 +44,6 @@ def generate_primes(x):
     """ Return a list of primes up to input (x) """
     return [i for i in range(1,x) if is_prime(i)]
 
-
 #-------------------------exponents-------------------------
 def exp_by_squaring(x, n):
     """ Faster method for exponents, using squaring """
@@ -47,15 +57,6 @@ def exp_by_squaring(x, n):
         return exp_by_squaring(x * x,  n / 2)
     else:
         return x * exp_by_squaring(x * x, (n - 1) / 2)
-
-def timer_wrapper(f, args=None):
-    start_time = time.time()
-    if args:
-        a = f(args)
-    else:
-        a = f()
-    print('Elapsed time: ', time.time() - start_time)
-    return a
 
 #-------------------------divisors-------------------------
 def proper_divisors(x:int):
