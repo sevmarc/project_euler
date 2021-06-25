@@ -17,7 +17,7 @@ def combine(inputlist):
 
 start_time = time.time()
 
-entries = sorted(read_info("79.txt"))
+entries = sorted(read_info("inputfiles/79.txt"))
 print(entries)
 combine([entries[0], entries[1]])
 combine(entries)

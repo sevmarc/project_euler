@@ -62,6 +62,30 @@ def filtering(base_exp):
                 base_exp.remove(be2)
     return base_exp
 
+def decreasing_exp_until_smaller(pair_of_be):
+    be1_base, be1_exp = pair_of_be[0]
+    be2_base, be2_exp = pair_of_be[1]
+    # we expect be2_exp > be1_exp
+    tolerance = 0.2
+    count = 0
+    while( abs((be1_exp / be2_exp) - 1) > 0.01):  # they should be close to even:
+        count += 1
+        print('iter: ', count, be1_exp, be2_exp)
+        if be1_exp > be2_exp:
+            be1_exp /= 2
+            be1_base *= be1_base  # squaring
+        else:
+            be2_exp /= 2
+            be2_base *= be2_base  # squaring
+    if be2_base > be1_base:
+        print(pair_of_be[1], ' > ', pair_of_be[0])
+        return pair_of_be[1]
+    if be1_base > be2_base:
+        print(pair_of_be[0], ' > ', pair_of_be[1])
+        return pair_of_be[0]    
+    else:
+        return None
+
 def exp(pair_of_be):
     be1_base, be1_exp = pair_of_be[0]
     be2_base, be2_exp = pair_of_be[1]
@@ -89,13 +113,16 @@ def calc99(base_exp):
     for count,current in enumerate(base_exp): 
         if count == 0:
             continue
-        max_ = exp([max_, current] )
+        # max_ = exp([max_, current] )
+        max_ = decreasing_exp_until_smaller([max_, current])
     return max_
 
 newbase = filtering(base_exp)
+print(timer_wrapper(decreasing_exp_until_smaller, [newbase[0], newbase[1]]))
 # timer_wrapper(exp, [newbase[0],newbase[1]] )
 # print(len(timer_wrapper(filtering, base_exp)))
 
-
+"""
 maxval = timer_wrapper(calc99, newbase)
 print('Result: ', base_exp.index(maxval))
+"""
