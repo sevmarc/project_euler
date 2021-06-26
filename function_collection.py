@@ -58,11 +58,14 @@ def exp_by_squaring(x, n):
     else:
         return x * exp_by_squaring(x * x, (n - 1) / 2)
 
+def is_square(x: int) -> bool:
+    return sqrt(x).is_integer()
+
 #-------------------------divisors-------------------------
-def proper_divisors(x:int):
+def proper_divisors(x:int) -> list:
     return [i for i in range(1, int(x/2 + 1)) if x % i == 0]
 
-def proper_divisors_fast(x:int):
+def proper_divisors_fast(x:int) -> list:
     div = [1]  # everything is divisible by 1
     looking_limit = int(x / 2 + 1)
     current = 2
@@ -79,3 +82,6 @@ def proper_divisors_fast(x:int):
 def is_perfect(x: int) -> bool:
     return sum(proper_divisors_fast(x)) == x
 
+#-------------------------strings--------------------------
+def is_palindrome(x: int) -> bool:
+    return str(x) == str(x)[::-1]
