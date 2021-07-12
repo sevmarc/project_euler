@@ -1,26 +1,19 @@
-from math import sqrt
+""" Smallest multiple
+2520 is the smallest number that can be divided by each of 
+the numbers from 1 to 10 without any remainder.
 
-# print(4*7*9*10)
+What is the smallest positive number that is evenly divisible 
+by all of the numbers from 1 to 20?
+"""
+
+from function_collection import is_prime
+
 """
 1*2*3*4*5*6*7*8*9*10
 1*2*3*(2*2)*5*(2*3)*7*(2*2*2)*(3*3)*(2*5)
 X 2 3  X 2  5  X X  7  X X 2   X 3   X X
 highest order of prime in one occurence
 """
-
-def is_prime(x):
-    if x == 1:
-        return False
-    check = 0
-    for i in range(1, x+1):
-        if x % i == 0:
-            check += 1
-            if check > 2:
-                return False
-    if check == 2:
-        return True
-    else:
-        return False
 
 def primes(n, lista=[]):
     if not lista:
@@ -41,7 +34,7 @@ def primes(n, lista=[]):
             break
     return result
 
-def prime_dict(n):
+def prime_dict(n: int) -> dict[int: int]:
     l = primes(n)
     d = {}
     for p in set(l):
@@ -58,34 +51,33 @@ def common(l):
             except KeyError:
                 d.update({i: j})
     return d
+    
 """
 # test
 print(primes(10))
 print(primes(20))
 print(primes(24))
-"""
+
 print(prime_dict(10))
 print(prime_dict(20))
 print(prime_dict(24))
-
 print(prime_dict(7))
+"""
 
-taskl = range(1,20)
-exl = range(1,10)
-print(taskl)
-
-ex = common(exl)
-print(ex)
-prod = 1
-for i,j in ex.items():
-    prod *= (i**j)
-print(prod)
+run_example = False
+if run_example:
+    ex = common(range(1,10))
+    print(ex)
+    prod = 1
+    for i,j in ex.items():
+        prod *= (i**j)
+    print(prod)
 
 
-task = common(taskl)
-print(task)
-prod = 1
-for i,j in task.items():
-    prod *= (i**j)
-print(prod)
-
+if __name__ == '__main__':
+    task = common(range(1,20))
+    
+    prod = 1
+    for i,j in task.items():
+        prod *= (i**j)
+    print(prod)
