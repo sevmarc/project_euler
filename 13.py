@@ -1,3 +1,8 @@
+""" Large sum
+Work out the first ten digits of the sum of 
+the following one-hundred 50-digit numbers.
+"""
+
 nums = [\
 37107287533902102798797998220837590246510135740250,
 46376937677490009712648124896970078050417018260538,
@@ -100,9 +105,10 @@ nums = [\
 20849603980134001723930671666823555245252804609722,
 53503534226472524250874054075591789781264330331690]
 
-first_x = 15
-sum = 0
-for n in nums:
-    sum += int(str(n)[:first_x])
+if __name__ == '__main__':
+    first_x = 15
+    sum_ = 0
+    for n in nums:
+        sum_ += int(str(n)[:first_x])
 
-print(str(sum)[:10])
+    print(str(sum_)[:10])
