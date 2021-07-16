@@ -1,6 +1,17 @@
-# Number letter counts
+""" Number letter counts
+If the numbers 1 to 5 are written out in words: one, two, three, four, 
+five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.
 
-word_table = {
+If all the numbers from 1 to 1000 (one thousand) inclusive were written 
+out in words, how many letters would be used?
+
+NOTE: Do not count spaces or hyphens. For example, 342 (three hundred 
+and forty-two) contains 23 letters and 115 (one hundred and fifteen) 
+contains 20 letters. The use of "and" when writing out numbers is in 
+compliance with British usage.
+"""
+
+word_table = {  # this dictionary is used to convert the number to word
     1: 'one',
     2: 'two',
     3: 'three',
@@ -32,16 +43,17 @@ word_table = {
     1000: 'onethousand',
 }
 
-def decode_number(x: int):
-    # thousand = int(x / 1000)
+def decode_number(x: int, printinfo: bool = False) -> int:
     hundred = int(x / 100 % 10)
     ten = int(x / 10 % 10)
     one = x % 10
     ten_one = x % 100
     # print(hundred, ten, one)
+    
     word = ''
     if x == 1000:
-        print(word_table[x])
+        if printinfo:
+            print(word_table[x])
         return len(word_table[x])
     if hundred > 0:
         word += word_table[hundred] + ' hundred'
@@ -54,14 +66,16 @@ def decode_number(x: int):
             word += word_table[ten * 10] + '-'
         if one > 0:
             word += word_table[one]
-    print(word)
+    
+    if printinfo:
+        print(word)
     word = word.replace(' ', '')
     word = word.replace('-', '')
     return len(word)
 
 
-def calc_all():
-    return sum([decode_number(i) for i in range(1, 1001)])
+def calc_all(printer=False):
+    return sum([decode_number(i, printer) for i in range(1, 1001)])
 
 """
 # tests
@@ -72,4 +86,5 @@ print(decode_number(4))
 print(decode_number(1000))
 """
 
-print(calc_all())
+if __name__ == '__main__':
+    print(calc_all())
