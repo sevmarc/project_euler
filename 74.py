@@ -85,18 +85,19 @@ def calc74():
 
 testing = False
 
-if testing:
-    print(factor_dict)
-    timer_wrapper(timer_test1)
-    timer_wrapper(timer_test2)
+if __name__ == '__main__':
+    if testing:
+        print(factor_dict)
+        timer_wrapper(timer_test1)
+        timer_wrapper(timer_test2)
 
-    print(cycle_of_factorials(145, []))
-    print(cycle_of_factorials(169, []))
-    print(cycle_of_factorials(871, []))
-    print(cycle_of_factorials(872, []))
-    print(cycle_of_factorials(69, []))
-    print(cycle_of_factorials(78, []))
-    print(cycle_of_factorials(540, []))
+        print(cycle_of_factorials(145, []))
+        print(cycle_of_factorials(169, []))
+        print(cycle_of_factorials(871, []))
+        print(cycle_of_factorials(872, []))
+        print(cycle_of_factorials(69, []))
+        print(cycle_of_factorials(78, []))
+        print(cycle_of_factorials(540, []))
 
-else:
-    print(timer_wrapper(calc74))  # ~55 sec
+    else:
+        print(timer_wrapper(calc74))  # ~55 sec
