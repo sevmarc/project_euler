@@ -30,7 +30,7 @@ def factor_rec(n: int) -> int:
         return 1
     return n * factor_rec(n -1)
 
-def sum_factor_digits_calc(x: int):
+def sum_factor_digits_calc(x: int) -> int:
     sum_ = 0
     for num_ in str(x):
         sum_ += factor_rec(int(num_))
@@ -40,7 +40,7 @@ factor_dict = {}
 for i in range(10):
     factor_dict.update( {str(i): factor_rec(i)} )
 
-def sum_factor_digits_lookup(x: int):
+def sum_factor_digits_lookup(x: int) -> int:
     sum_ = 0
     for num_ in str(x):
         sum_ += factor_dict[num_]
@@ -57,40 +57,27 @@ def timer_test2():
         sum_factor_digits_lookup(i)
 
 
-def cycle_of_factorials(start: int, data, acc=[]):
+def cycle_of_factorials(start: int, acc=None):
     current = sum_factor_digits_lookup(start)
-
-    if len(data) > current:
-        return 0, None
 
     if acc:
         results = acc
     else:
         results = [start]
 
-
-    if current in results[1:]:  # or is_perfect(current) 
-        if results[0] not in results[1:]:
-            # print(results)
-            return len(results)
-        else:
-            # print(results)
-            # return len(results)
-            return 0
+    if current in results:  # or is_perfect(current) 
+        return len(results)
     else:
         results.append(current)
-        return cycle_of_factorials(current, data, results)
+    return cycle_of_factorials(current, results)
 
 def calc74():
     i = 0
     goal_len = 60
     count = 0
     starter_limit = 1000000
-    data = []
     while(i <= starter_limit):
-        print(i)
-        len_ = cycle_of_factorials(start=i, data=data)
-        # data.append(len_)
+        len_ = cycle_of_factorials(i)
         if len_ == goal_len:
             count += 1
         i += 1
