@@ -12,7 +12,7 @@ Surprisingly, bouncy numbers become more and more common and by the time we reac
 
 Find the least number for which the proportion of bouncy numbers is exactly 99%.
 """
-from function_collection import timer_wrapper
+from function_collection.main import timer_wrapper
 
 
 def is_bouncy(x: int):

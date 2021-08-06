@@ -21,7 +21,7 @@ NOTE: Once the chain starts the terms are
 allowed to go above one million.
 """
 
-from function_collection import timer_wrapper
+from function_collection.main import timer_wrapper
 
 def collatz_len(n: int, counter:int=0) -> int:
     counter += 1

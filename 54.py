@@ -49,7 +49,7 @@ How many hands does Player 1 win?
 """
 
 from typing import Collection
-from function_collection import timer_wrapper
+from function_collection.main import timer_wrapper
 from collections import Counter, OrderedDict
 
 

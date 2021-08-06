@@ -11,7 +11,7 @@ There are 120 reversible numbers below one-thousand.
 How many reversible numbers are there below one-billion (10^9)?
 """
 
-from function_collection import timer_wrapper
+from function_collection.main import timer_wrapper
 
 
 def filter_rev(x: int) -> bool:

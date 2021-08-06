@@ -22,7 +22,7 @@ a starting number below one million is sixty terms.
 How many chains, with a starting number below one million, contain exactly sixty non-repeating terms?
 """
 
-from function_collection import timer_wrapper
+from function_collection.main import timer_wrapper
 
 
 def factor_rec(n: int) -> int:

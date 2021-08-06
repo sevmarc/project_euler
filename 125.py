@@ -11,7 +11,7 @@ Find the sum of all the numbers less than 10^8 that are both palindromic
 and can be written as the sum of consecutive squares.
 """
 
-from function_collection import timer_wrapper, is_palindrome, is_square
+from function_collection.main import timer_wrapper, is_palindrome, is_square
 from math import sqrt
 
 limit = 100000000

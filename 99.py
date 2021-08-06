@@ -11,7 +11,7 @@ determine which line number has the greatest numerical value.
 
 NOTE: The first two lines in the file represent the numbers in the example given above.
 """
-from function_collection import timer_wrapper, exp_by_squaring
+from function_collection.main import timer_wrapper, exp_by_squaring
 from math import pow
 
 def load_base_exp(base_exp):

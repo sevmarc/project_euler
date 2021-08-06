@@ -9,7 +9,7 @@ Find the sum of the perimeters of all almost equilateral triangles with integral
 and area and whose perimeters do not exceed one billion (1,000,000,000).
 """
 
-from function_collection import timer_wrapper
+from function_collection.main import timer_wrapper
 import numpy as np
 from math import pow
 import decimal

@@ -5,7 +5,7 @@ made from the product of two 2-digit numbers is 9009 = 91 × 99.
 Find the largest palindrome made from the product of two 3-digit numbers.
 """
 
-from function_collection import is_palindrome
+from function_collection.main import is_palindrome
 
 def pal():
     return max(i*j for i in range(100,999) for j in range(100,999) if is_palindrome(i*j))

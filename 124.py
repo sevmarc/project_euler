@@ -11,7 +11,7 @@ Let E(k) be the kth element in the sorted n column; for example, E(4) = 8 and E(
 If rad(n) is sorted for 1 ≤ n ≤ 100000, find E(10000).
 """
 
-from function_collection import timer_wrapper, unique_prime_divisors
+from function_collection.main import timer_wrapper, unique_prime_divisors
 
 
 def prod(list_of_nums):

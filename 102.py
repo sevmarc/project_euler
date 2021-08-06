@@ -14,7 +14,7 @@ of one thousand "random" triangles, find the number of triangles for which the i
 NOTE: The first two examples in the file represent the triangles in the example given above.
 """
 
-from function_collection import timer_wrapper
+from function_collection.main import timer_wrapper
 from math import pi, sqrt, acos, degrees
 
 """

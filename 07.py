@@ -5,7 +5,7 @@ we can see that the 6th prime is 13.
 What is the 10001st prime number?
 """
 
-from function_collection import is_prime
+from function_collection.main import is_prime
 
 
 if __name__ == '__main__':

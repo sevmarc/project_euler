@@ -6,7 +6,7 @@ What is the smallest positive number that is evenly divisible
 by all of the numbers from 1 to 20?
 """
 
-from function_collection import is_prime
+from function_collection.main import is_prime
 
 """
 1*2*3*4*5*6*7*8*9*10

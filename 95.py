@@ -12,7 +12,7 @@ Since this chain returns to its starting point, it is called an amicable chain.
 Find the smallest member of the longest amicable chain with no element exceeding one million.
 """
 
-from function_collection import timer_wrapper, proper_divisors, proper_divisors_fast
+from function_collection.main import timer_wrapper, proper_divisors, proper_divisors_fast
 
 def test1(x):
     for i in range(x):

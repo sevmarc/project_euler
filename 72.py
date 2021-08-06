@@ -14,7 +14,7 @@ How many elements would be contained in the set of reduced proper
 fractions for d ≤ 1,000,000?
 """
 
-from function_collection import unique_prime_divisors, timer_wrapper
+from function_collection.main import unique_prime_divisors, timer_wrapper
 from itertools import chain, combinations
 from math import gcd as bltin_gcd
 

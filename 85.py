@@ -13,7 +13,7 @@ Although there exists no rectangular grid that contains exactly two million rect
 3x3 -> 36 (9 + 6 + 3 + 6 + 4 + 2 + 3 + 2 + 1)
 """
 
-from function_collection import timer_wrapper
+from function_collection.main import timer_wrapper
 
 
 def calc_rects(sides, acc=0):

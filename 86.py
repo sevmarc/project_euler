@@ -12,7 +12,7 @@ the number of solutions when M = 99 is 1975.
 Find the least value of M such that the number of solutions first exceeds one million.
 """
 
-from function_collection import timer_wrapper
+from function_collection.main import timer_wrapper
 from math import sqrt
 from copy import copy
 

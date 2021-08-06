@@ -20,7 +20,7 @@ Hence, by considering minimal solutions in x for D ≤ 7, the largest x is obtai
 Find the value of D ≤ 1000 in minimal solutions of x for which the largest value of x is obtained.
 """
 
-from function_collection import timer_wrapper
+from function_collection.main import timer_wrapper
 from math import sqrt
 
 

@@ -10,7 +10,7 @@ Find the smallest prime which, by replacing part of the number (not necessarily 
 from math import sqrt
 from itertools import permutations
 from itertools import chain, combinations
-from function_collection import timer_wrapper
+from function_collection.main import timer_wrapper
 
 def is_prime(x):
     if x <= 1:

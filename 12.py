@@ -21,7 +21,7 @@ What is the value of the first triangle number to have
 over five hundred divisors?
 """
 
-from function_collection import is_prime, timer_wrapper
+from function_collection.main import is_prime, timer_wrapper
 
 
 def triangle(n: int) -> int:

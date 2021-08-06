@@ -17,7 +17,7 @@ twentieth century (1 Jan 1901 to 31 Dec 2000)?
 """
 
 import datetime
-from function_collection import timer_wrapper
+from function_collection.main import timer_wrapper
 
 def loop_through_days() -> int:
     start_date = datetime.date(1901,1,1)
