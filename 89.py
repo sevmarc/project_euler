@@ -46,3 +46,6 @@ roman_numerals = {
 class Roman:
     def __init__(self, text: str) -> None:
         self.text = text
+
+    def check_validity(self):
+        pass
