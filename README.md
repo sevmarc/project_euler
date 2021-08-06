@@ -5,7 +5,7 @@ https://projecteuler.net/
 
 ## Python
 Usage: python3 [.py file]
-Common files: function_collection.py
+Common files: function_collection python package (main.py)
 Requirements.txt needs to be added in the future for any non-default dependency.
 
 ## C++
