@@ -24,7 +24,7 @@ def parse_files(filelist: list[str]) -> dict[str: str]:
                             reading = True
                 else:
                     continue
-            except IndexError:
+            except IndexError:  # empty file (?)
                 continue
         if problem_name:
             docs_list.update( {problem_name: docs} )
