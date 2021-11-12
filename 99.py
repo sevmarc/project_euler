@@ -13,6 +13,10 @@ NOTE: The first two lines in the file represent the numbers in the example given
 """
 from function_collection.main import timer_wrapper, exp_by_squaring
 from math import pow
+import sys
+
+sys.setrecursionlimit(5000)
+
 
 def load_base_exp(base_exp):
     exps = []
@@ -50,6 +54,14 @@ def load_base_exp(base_exp):
     c^(b-d)        (c/a)^b     / a^b * c^(d-b)
 
 
+    -----------------
+    a < b
+    a^b <> b^a
+    a*a*a*a*..*a <> b*b*b*b*...*b
+    a^(b-a) <> b^a * a^(-a) = (b/a)^a
+    
+    -----------------
+
 """
 
 base_exp = load_base_exp("inputfiles/99_base_exp.txt")
@@ -66,9 +78,9 @@ def decreasing_exp_until_smaller(pair_of_be):
     be1_base, be1_exp = pair_of_be[0]
     be2_base, be2_exp = pair_of_be[1]
     # we expect be2_exp > be1_exp
-    tolerance = 0.2
+    tolerance = 0.012
     count = 0
-    while( abs((be1_exp / be2_exp) - 1) > 0.01):  # they should be close to even:
+    while( abs((be1_exp / be2_exp) - 1) > tolerance):  # they should be close to even:
         count += 1
         print('iter: ', count, be1_exp, be2_exp)
         if be1_exp > be2_exp:
@@ -85,6 +97,34 @@ def decreasing_exp_until_smaller(pair_of_be):
         return pair_of_be[0]    
     else:
         return None
+
+def decreasing_exponent(ab, cd):
+    a,b = ab
+    c,d = cd
+    if a > c:
+        a /= c
+    else:
+        c /= a
+    if d > b:
+        d -= b
+    else:
+        b -= d
+    tolerance = 0.0035
+    # print(f"a: {a}, b: {b}, c:{c}, d: {d}")
+    if abs(a / c - 1) < tolerance:
+        print(f'final! {a, b} > {c, d}')
+        try:
+            return pow(a,b) > pow(c,d)
+        except OverflowError:
+            return b > d
+    if abs(b / d - 1) < tolerance:
+        print(f'final! {a, b} > {c, d} = {a > c}')
+        try:
+            return pow(a,b) > pow(c,d)
+        except OverflowError:
+            return a > c
+    return decreasing_exponent([a,b], [c,d])
+    
 
 def exp(pair_of_be):
     be1_base, be1_exp = pair_of_be[0]
@@ -108,17 +148,24 @@ def exp(pair_of_be):
 
 
 def calc99(base_exp):
-    max_ = base_exp[0]
+    max_ = base_exp[-1]
     max_place = None
-    for count,current in enumerate(base_exp): 
+    for count,current in enumerate(reversed(base_exp)): 
         if count == 0:
             continue
-        # max_ = exp([max_, current] )
-        max_ = decreasing_exp_until_smaller([max_, current])
+        left = decreasing_exponent(max_, current)
+        if not left:
+            print(f"loc: {count+1}, [{max_}, {current}], new_max: {current}")
+            max_ = current
+    print(base_exp.index(max_) + 1)
     return max_
 
-newbase = filtering(base_exp)
-print(timer_wrapper(decreasing_exp_until_smaller, [newbase[0], newbase[1]]))
+# newbase = filtering(base_exp)
+
+print(timer_wrapper(calc99, base_exp))
+
+# print([newbase[0], newbase[1]])
+# print(decreasing_exponent(newbase[0], newbase[1]))
 # timer_wrapper(exp, [newbase[0],newbase[1]] )
 # print(len(timer_wrapper(filtering, base_exp)))
 
