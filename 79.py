@@ -11,18 +11,47 @@ order, analyse the file so as to determine the shortest
 possible secret passcode of unknown length.
 """
 
-import time
 from collections import Counter
+from function_collection.main import timer_wrapper
 
 
 def read_info(filename):
     return [data.strip('\n') for data in open(filename, 'r')]
+
+def order_digits(inputlist, digitnum):
+    digits = [i[digitnum] for i in inputlist]
+    c = Counter(digits)
+    sorted_digits = sorted(c.items(), key=lambda item: (-item[1], item[0]))
+    if digitnum == 2:
+        sorted_digits = reversed(sorted_digits)
+    digit_strip = ""
+    for i in sorted_digits:
+        digit_strip += i[0]
+    print(c, digits, digit_strip)
+    return digit_strip
+
+def remove_unnecessary(inputlist, result):
+    for ind_ in range(len(result)):
+        result_short = result[:ind_ - len(result)] + result[ind_ -len(result) + 1:]  # remove ind_ character
+        
+def check_input(input_, current_result):
+    pass
+
+
+def check_inputlist(inputlist, current_result):
+    for input_ in inputlist:
+        pass
+
+def algo1(inputlist):
+    pass
 
 
 def combine(inputlist):
     """
     123
     456 -> 123456
+    1442536
+
     458
     354 -> 34548
     111
@@ -30,22 +59,24 @@ def combine(inputlist):
              |      |
     121 -> 1121 / 11121 <- we can only decide in the next step
            ^^^^
+    
+    Most basic solution:
+    1234567890 1234567890 1234567890
+    Need to find an optimal way
+    order it based on digit occurence -
+        most common first digit, second...
     """
 
-    results = []
-    for result in results:
-        for code in inputlist:
-            for letter in code:
-                if letter not in result:
-                    result += letter
-        
+    result = ""
+    result += order_digits(inputlist, 0)
+    result += order_digits(inputlist, 1)
+    result += order_digits(inputlist, 2)
+    
+    print(result)
+    return result
 
-
-start_time = time.time()
 
 entries = sorted(read_info("inputfiles/79.txt"))
-print(entries)
 combine([entries[0], entries[1]])
-combine(entries)
 
-print(time.time() - start_time)
+timer_wrapper(combine, entries)
