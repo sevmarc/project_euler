@@ -8,17 +8,8 @@ However, if (5, 12, 13) triangles were used then the hole would measure 7 by 7 a
 Given that the perimeter of the right triangle is less than one-hundred million, how many Pythagorean triangles would allow such a tiling to take place?
 """
 
-
-def check_pyt(a: int, b: int, c: int) -> bool:
-    return a*a + b*b == c*c
-
+from function_collection.main import generate_all_pyth_triplets
 
 
 if __name__ == '__main__':
-    max_ = 998
-    for a in range(1, max_):
-        for b in range(1, max_ - a):
-            c = 1000 - a - b
-            if check_pyt(a,b,c):
-                print(a, b, c, a*b*c)
-                exit()
+    generate_all_pyth_triplets(4)
