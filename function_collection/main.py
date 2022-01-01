@@ -70,6 +70,10 @@ def is_square(x: int) -> bool:
     """ Function for checking if an integer is a square """
     return sqrt(x).is_integer()
 
+def is_power(x: int, n: int):
+    """ Function for checking if an integer is nth power """
+    return (x ** (1/float(n))).is_integer()
+
 #-------------------------divisors-------------------------
 def proper_divisors(x:int) -> list:
     """ Naive method for divs """
