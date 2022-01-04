@@ -10,27 +10,15 @@ Find the difference between the sum of the squares of the first
 one hundred natural numbers and the square of the sum.
 """
 
-def sum_square(n: list[int]) -> int:
-    sum = 0
-    for i in n:
-        sum += i * i
-    return sum
+def sum_square(n: int) -> int:
+    return sum([i * i for i in range(n + 1)])
+    
+def square_sum(m: int) -> int:
+    return sum(range(m + 1)) ** 2
 
-def square_sum(m: list[int]) -> int:
-    sum = 0
-    for i in m:
-        sum += i
-    return sum * sum
 
-"""
-example_l = range(1,11)
-print(sum_square(example_l))
-print(square_sum(example_l))
-print(square_sum(example_l) - sum_square(example_l))
-"""
-
-if __name__ == '__main__':        
-    numlist = range(1,101)
-    sum_of_squares = sum_square(numlist)
-    square_of_sums = square_sum(numlist)
+if __name__ == '__main__':       
+    lim = 100
+    sum_of_squares = sum_square(lim)
+    square_of_sums = square_sum(lim)
     print(square_of_sums - sum_of_squares)
