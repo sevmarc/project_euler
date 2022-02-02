@@ -1,4 +1,4 @@
-# project_euler
+# Project Euler
 All working solutions of Project Euler problems (mostly done in python)
 
 https://projecteuler.net/
@@ -12,3 +12,6 @@ Requirements.txt needs to be added in the future for any non-default dependency.
 Use run_cpp.sh to run the .cpp source files
 Usage: bash ./run_cpp.sh [.cpp file]
 The temporary executable is removed after it is run. Might need optimization in the future.
+
+# Highlights:
+- Sudoku solver: 96.py
