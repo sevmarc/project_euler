@@ -14,4 +14,5 @@ Usage: bash ./run_cpp.sh [.cpp file]
 The temporary executable is removed after it is run. Might need optimization in the future.
 
 # Highlights:
-- Sudoku solver: 96.py
+- Sudoku solver: 96.py -> python 96.py
+- Simple prime cpp: 03.cpp -> bash ./run_cpp.sh 03.cpp
