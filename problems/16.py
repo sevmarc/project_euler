@@ -8,10 +8,10 @@ from math import sqrt
 
 def powdig(x: int,y: int) -> int:
     val = pow(x,y)
-    sum = 0
+    sum_ = 0
     for w in str(val):
-        sum += int(w)
-    return sum
+        sum_ += int(w)
+    return sum_
 
 if __name__ == '__main__':
     # print(powdig(2, 15))
