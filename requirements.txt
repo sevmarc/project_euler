@@ -1,0 +1,4 @@
+/usr/bin/pypy3 -m ensurepip
+pypy3 -mpip install *
+*: 
+    sympy
