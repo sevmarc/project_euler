@@ -18,6 +18,6 @@ if __name__ == '__main__':
     for a in range(1, max_):
         for b in range(1, max_ - a):
             c = 1000 - a - b
-            if check_pyt(a,b,c):
+            if check_pyt(a, b, c):
                 print(a, b, c, a*b*c)
                 exit()

@@ -10,6 +10,6 @@ from function_collection.main import is_prime, timer_wrapper
 def calc10(max_: int) -> int:
     return sum([i for i in range(1, max_ + 1) if is_prime(i)])
 
+
 if __name__ == '__main__':
     print(timer_wrapper(calc10, 2000000))
-    

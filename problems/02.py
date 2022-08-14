@@ -8,6 +8,7 @@ By considering the terms in the Fibonacci sequence whose values do
 not exceed four million, find the sum of the even-valued terms.
 """
 
+
 def fibo_rec(n: int) -> int:  # recursive
     if n == 1:
         return 1
@@ -35,6 +36,7 @@ def fibo_even_sum(limit_=4000000) -> int:
             sum_ += cur
         x += 1
     return sum_
+
 
 if __name__ == '__main__':
     print(fibo_even_sum())

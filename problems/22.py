@@ -29,9 +29,9 @@ def add_letters(name: str) -> int:
 
 
 def calculate_name_values(list_of_names: list[str]) -> int:
-    return sum([(add_letters(name) * (i + 1)) for i,name in enumerate(list_of_names)])
+    return sum([(add_letters(name) * (i + 1)) for i, name in enumerate(list_of_names)])
 
 
-if __name__ == '__main__':    
+if __name__ == '__main__':
     names = read_names()
     print(timer_wrapper(calculate_name_values, names))

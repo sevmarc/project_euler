@@ -22,11 +22,12 @@ def d(n):
 
 if __name__ == '__main__':
     testing = False
-    
+
     if testing:
         print(f"{d(220) = }")
         print(f"{d(284) = }")
     else:
         max_val = 10000
-        result = sum([i for i in range(max_val + 1) if (i == d(d(i))) and (i != d(i))])
+        result = sum([i for i in range(max_val + 1)
+                     if (i == d(d(i))) and (i != d(i))])
         print(f"{result = }")

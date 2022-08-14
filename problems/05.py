@@ -15,6 +15,7 @@ X 2 3  X 2  5  X X  7  X X 2   X 3   X X
 highest order of prime in one occurence
 """
 
+
 def primes(n, lista=[]):
     if not lista:
         result = []
@@ -34,14 +35,16 @@ def primes(n, lista=[]):
             break
     return result
 
+
 def prime_dict(n: int) -> dict[int: int]:
     l = primes(n)
     return {p: l.count(p) for p in set(l)}
-    
+
+
 def common(l):
     d = {}
     for n in l:
-        for i,j in prime_dict(n).items():
+        for i, j in prime_dict(n).items():
             try:
                 if d[i] < j:
                     d.update({i: j})
@@ -49,19 +52,20 @@ def common(l):
                 d.update({i: j})
     return d
 
+
 if __name__ == '__main__':
     run_example = False
 
     if run_example:
-        print(ex := common(range(1,10)))
+        print(ex := common(range(1, 10)))
         prod = 1
-        for i,j in ex.items():
+        for i, j in ex.items():
             prod *= (i**j)
         print(prod)
-    else:    
-        task = common(range(1,20))
-        
+    else:
+        task = common(range(1, 20))
+
         prod = 1
-        for i,j in task.items():
+        for i, j in task.items():
             prod *= (i**j)
         print(prod)

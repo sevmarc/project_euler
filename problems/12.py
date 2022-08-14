@@ -65,10 +65,11 @@ def divisors_fast(n: int) -> int:
 
 
 def calc12():
-    for i in range(1,100000):
+    for i in range(1, 100000):
         if divisors_fast(triangle(i)) >= 500:
             print(i, triangle(i))
             break
+
 
 if __name__ == '__main__':
     timer_wrapper(calc12)

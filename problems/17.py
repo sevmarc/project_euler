@@ -43,12 +43,13 @@ word_table = {  # this dictionary is used to convert the number to word
     1000: 'onethousand',
 }
 
+
 def decode_number(x: int, printinfo: bool = False) -> int:
     hundred = int(x / 100 % 10)
     ten = int(x / 10 % 10)
     one = x % 10
     ten_one = x % 100
-    
+
     word = ''
     if x == 1000:
         if printinfo:
@@ -65,7 +66,7 @@ def decode_number(x: int, printinfo: bool = False) -> int:
             word += word_table[ten * 10] + '-'
         if one > 0:
             word += word_table[one]
-    
+
     if printinfo:
         print(word)
     word = word.replace(' ', '')
