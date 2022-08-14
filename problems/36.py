@@ -1,26 +1,19 @@
-def palindrome(w: str):
-    if len(w) <= 1:
-        return True
-    if w[0] == w[len(w)-1]:
-        if len(w) == 2:
-            return True
-        w1 = w[1:(len(w)-1)]
-        # print(w, ' -> ', w1)
-        return palindrome(w1)
-    return False
+""" Double-base palindromes
+The decimal number, 585 = 10010010012 (binary), 
+is palindromic in both bases.
 
-print(palindrome("12321"))
-print(palindrome("12311121"))
-print(palindrome("12322221"))
-print(palindrome("123321"))
+Find the sum of all numbers, less than one million, 
+which are palindromic in base 10 and base 2.
+
+(Please note that the palindromic number, 
+in either base, may not include leading zeros.)
+"""
+
+from function_collection.main import is_palindrome
 
 
-maxval = 1000000
-
-sum = 0
-for i in range(1, maxval):
-    if palindrome(str(i)) and palindrome(bin(i)[2:]):
-        print(i, ' == ', bin(i))
-        sum += i
-
-print("SUM: ", sum)
+if __name__ == '__main__':
+    maxval = 1000000
+    result = sum([i for i in range(1, maxval) if is_palindrome(i)
+                 and is_palindrome(int(bin(i)[2:]))])
+    print(f"{result = }")
