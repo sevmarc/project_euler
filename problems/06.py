@@ -19,6 +19,4 @@ def square_sum(m: int) -> int:
 
 if __name__ == '__main__':       
     lim = 100
-    sum_of_squares = sum_square(lim)
-    square_of_sums = square_sum(lim)
-    print(square_of_sums - sum_of_squares)
+    print(square_sum(lim) - sum_square(lim))
