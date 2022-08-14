@@ -1,7 +1,9 @@
 # 42.txt
 import string
+from function_collection.utils import handle_filepath
 
-f_words = open("problems/inputfiles/42.txt", "r")
+
+f_words = open(handle_filepath("inputfiles/42.txt"), "r")
 wordlist = []
 for w in f_words:
     for a in (w.split('","')):

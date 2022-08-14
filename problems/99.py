@@ -12,6 +12,7 @@ determine which line number has the greatest numerical value.
 NOTE: The first two lines in the file represent the numbers in the example given above.
 """
 from function_collection.main import timer_wrapper, exp_by_squaring
+from function_collection.utils import handle_filepath
 from math import pow
 import sys
 
@@ -64,7 +65,7 @@ def load_base_exp(base_exp):
 
 """
 
-base_exp = load_base_exp("problems/inputfiles/99_base_exp.txt")
+base_exp = load_base_exp(handle_filepath("inputfiles/99_base_exp.txt"))
 
 def filtering(base_exp):
     for be in base_exp:

@@ -1,12 +1,8 @@
 # XOR decryption
 import time
 import string
+from function_collection.utils import handle_filepath
 
-"""
-print(ord('A'))
-print(ord('k'))
-print(ord('*'))
-"""
 
 # the encryption key consists of three lower case characters
 
@@ -48,7 +44,7 @@ def all_keys():
 
 start_time = time.time()
 
-msg = read_message_from_file('problems/inputfiles/59.txt')
+msg = read_message_from_file(handle_filepath('inputfiles/59.txt'))
 keylist = all_keys()
 # print(msg)
 # print(check_for_words('the', 2, "the man and the cow"))

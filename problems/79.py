@@ -13,6 +13,7 @@ possible secret passcode of unknown length.
 
 from collections import Counter
 from function_collection.main import timer_wrapper
+from function_collection.utils import handle_filepath
 
 
 def read_info(filename):
@@ -76,7 +77,7 @@ def combine(inputlist):
     return result
 
 
-entries = sorted(read_info("problems/inputfiles/79.txt"))
+entries = sorted(read_info(handle_filepath("inputfiles/79.txt")))
 combine([entries[0], entries[1]])
 
 timer_wrapper(combine, entries)

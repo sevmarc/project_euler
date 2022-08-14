@@ -50,6 +50,7 @@ How many hands does Player 1 win?
 
 from typing import Collection
 from function_collection.main import timer_wrapper
+from function_collection.utils import handle_filepath
 from collections import Counter, OrderedDict
 
 
@@ -270,5 +271,5 @@ def play_tournament(hand_pairs: list[list[Hand]]) -> int:
 
 
 if __name__ == '__main__':
-    hand_pairs = read_hands('problems/inputfiles/54_poker.txt')
+    hand_pairs = read_hands(handle_filepath('/inputfiles/54_poker.txt'))
     print(play_tournament(hand_pairs))

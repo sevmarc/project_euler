@@ -10,6 +10,7 @@ NOTE: All anagrams formed must be contained in the given text file.
 
 from collections import Counter
 from function_collection.main import is_square
+from function_collection.utils import handle_filepath
 from itertools import combinations
 
 
@@ -43,7 +44,7 @@ def check_squares(word1: str, word2: str) -> int:
     print(list(c))
 
 if __name__ == '__main__':
-    a= load_words('problems/inputfiles/98_words.txt')
+    a= load_words(handle_filepath('inputfiles/98_words.txt'))
     
     print(check_anagram("mazda","azmad"))
     print(check_anagram("mazda","azmad1"))

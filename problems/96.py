@@ -11,11 +11,12 @@ By solving all fifty puzzles find the sum of the 3-digit numbers found in the to
 
 from typing import Counter
 from function_collection.main import timer_wrapper
+from function_collection.utils import handle_filepath
 import random
 import copy
 
 
-def load_sudoku(number: int, filename:str="problems/inputfiles/96_sudoku.txt") -> list[str]:
+def load_sudoku(number: int, filename:str=handle_filepath("inputfiles/96_sudoku.txt")) -> list[str]:
     """
     Uses pre-determined format
     """
@@ -271,6 +272,6 @@ if __name__ == '__main__':
     testing = False 
     
     if testing:
-        timer_wrapper(Sudoku(load_sudoku(6, "problems/inputfiles/96_sudoku.txt"), debug=True).solve_sudoku)
+        timer_wrapper(Sudoku(load_sudoku(6, handle_filepath("inputfiles/96_sudoku.txt")), debug=True).solve_sudoku)
     else:
         print(timer_wrapper(main))  # runtime: ~71 sec

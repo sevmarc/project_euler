@@ -3,7 +3,10 @@ https://oeis.org/A051626
 https://oeis.org/A051626/b051626.txt
 """
 
-f_open = open("problems/inputfiles/26.txt", "r")
+from function_collection.utils import handle_filepath
+
+
+f_open = open(handle_filepath("inputfiles/26.txt"), "r")
 lines = {}
 for line in f_open:
     line = line.split()
