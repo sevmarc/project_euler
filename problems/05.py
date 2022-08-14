@@ -36,11 +36,8 @@ def primes(n, lista=[]):
 
 def prime_dict(n: int) -> dict[int: int]:
     l = primes(n)
-    d = {}
-    for p in set(l):
-        d.update({p: l.count(p)})
-    return d
-
+    return {p: l.count(p) for p in set(l)}
+    
 def common(l):
     d = {}
     for n in l:
@@ -51,33 +48,20 @@ def common(l):
             except KeyError:
                 d.update({i: j})
     return d
-    
-"""
-# test
-print(primes(10))
-print(primes(20))
-print(primes(24))
-
-print(prime_dict(10))
-print(prime_dict(20))
-print(prime_dict(24))
-print(prime_dict(7))
-"""
-
-run_example = False
-if run_example:
-    ex = common(range(1,10))
-    print(ex)
-    prod = 1
-    for i,j in ex.items():
-        prod *= (i**j)
-    print(prod)
-
 
 if __name__ == '__main__':
-    task = common(range(1,20))
-    
-    prod = 1
-    for i,j in task.items():
-        prod *= (i**j)
-    print(prod)
+    run_example = False
+
+    if run_example:
+        print(ex := common(range(1,10)))
+        prod = 1
+        for i,j in ex.items():
+            prod *= (i**j)
+        print(prod)
+    else:    
+        task = common(range(1,20))
+        
+        prod = 1
+        for i,j in task.items():
+            prod *= (i**j)
+        print(prod)
