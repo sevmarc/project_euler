@@ -107,8 +107,4 @@ nums = [\
 
 if __name__ == '__main__':
     first_x = 15
-    sum_ = 0
-    for n in nums:
-        sum_ += int(str(n)[:first_x])
-
-    print(str(sum_)[:10])
+    print(str(sum(int(str(n)[:first_x]) for n in nums))[:10])

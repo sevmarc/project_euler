@@ -1,12 +1,12 @@
 """ Largest product in a grid
-In the 20×20 grid below, four numbers along a 
+In the 20x20 grid below, four numbers along a 
 diagonal line have been marked in red.
 
-The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
+The product of these numbers is 26 x 63 x 78 x 14 = 1788696.
 
 What is the greatest product of four adjacent 
 numbers in the same direction (up, down, left, 
-right, or diagonally) in the 20×20 grid?
+right, or diagonally) in the 20x20 grid?
 """
 
 input_grid = [\
@@ -38,16 +38,7 @@ def convert_grid(input_grid: list[list[str]]) -> list[str]:
         line[0] = line[0].split()
         new_grid.append(line[0])
     return new_grid
-    # for line in grid:
-    #     print(line)
-    # print(grid[5][5])
 
-    """
-    now grid has coordinates
-    x ---  x ---   x
-        /  |  \
-    x    x    x
-    """
 
 grid = convert_grid(input_grid)
 len_ = 4
@@ -59,10 +50,8 @@ if __name__ == '__main__':
             # [j][i] coord
             try:
                 prod = 1
-                # prod = ""
                 for z in range(len_):
                     prod *= int(grid[j+z][i+z])
-                    #prod += str(z) + ", " + grid[j+z][i+z]
                 prods.append(prod)
             except IndexError:
                 pass

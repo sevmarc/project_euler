@@ -48,7 +48,6 @@ def decode_number(x: int, printinfo: bool = False) -> int:
     ten = int(x / 10 % 10)
     one = x % 10
     ten_one = x % 100
-    # print(hundred, ten, one)
     
     word = ''
     if x == 1000:
@@ -74,17 +73,17 @@ def decode_number(x: int, printinfo: bool = False) -> int:
     return len(word)
 
 
-def calc_all(printer=False):
+def calc_all(printer=False) -> int:
     return sum([decode_number(i, printer) for i in range(1, 1001)])
 
-"""
-# tests
-print(decode_number(123))
-print(decode_number(243))
-print(decode_number(52))
-print(decode_number(4))
-print(decode_number(1000))
-"""
 
 if __name__ == '__main__':
-    print(calc_all())
+    testing = False
+    if testing:
+        print(decode_number(123))
+        print(decode_number(243))
+        print(decode_number(52))
+        print(decode_number(4))
+        print(decode_number(1000))
+    else:
+        print(calc_all())

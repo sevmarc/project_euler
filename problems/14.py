@@ -23,7 +23,7 @@ allowed to go above one million.
 
 from function_collection.main import timer_wrapper
 
-def collatz_len(n: int, counter:int=0) -> int:
+def collatz_len(n: int, counter:int=0) -> int:  # recursive definition
     counter += 1
     if (n == 1):
         return counter
@@ -33,8 +33,7 @@ def collatz_len(n: int, counter:int=0) -> int:
         return collatz_len(3 * n + 1, counter)
 
 def calc14(full=1000000):
-    max_ = 0
-    max_place = 0
+    max_ = max_place = 0
     for i in range(1, full):
         cur = collatz_len(i)
         if cur > max_:
@@ -42,7 +41,6 @@ def calc14(full=1000000):
             max_place = i
     print(max_place, max_)
 
-    # print(ans_path[0], ans)
 
 if __name__ == '__main__':
     timer_wrapper(calc14)

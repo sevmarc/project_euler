@@ -1,21 +1,15 @@
 """ Lattice paths
-Starting in the top left corner of a 2×2 grid, and only being 
+Starting in the top left corner of a 2x2 grid, and only being 
 able to move to the right and down, there are exactly 6 routes 
 to the bottom right corner.
 
-How many such routes are there through a 20×20 grid?
+How many such routes are there through a 20x20 grid?
 """
 
 def moveset(n: int, m: int) -> int:
     if (n == 0) or (m == 0):
         return 1
-    return moveset(n-1,m) + moveset(n,m-1)
-
-def fact(x: int) -> int:
-    if x == 1:
-        return 1
-    else:
-        return (x) * fact(x-1)
+    return moveset(n-1, m) + moveset(n, m-1)
 
 def trial(x: int) -> int:
     if x == 1:
@@ -23,9 +17,9 @@ def trial(x: int) -> int:
     return (8*x-4)/(2*x)*trial(x-1)
 
 
-testing = False
-
 if __name__ == '__main__':
+    testing = False
+    
     if testing:
         print(1, moveset(1,1))
         print(moveset(1,2))
@@ -49,6 +43,5 @@ if __name__ == '__main__':
 
         for i in range(2,15):
             print(i, trial(i))
-
-
-    print(int(trial(20)))
+    else:
+        print(int(trial(20)))

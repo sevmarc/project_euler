@@ -25,31 +25,12 @@ from function_collection.main import is_prime, timer_wrapper
 
 
 def triangle(n: int) -> int:
-    sum = 0
-    for i in range(n+1):
-        sum += i
-    return sum
+    return sum(range(n+1))
 
-"""
-print(triangle(1))
-print(triangle(4))
-print(triangle(5))
-print(triangle(6))
-"""
 
-def divisors(x: int) -> int:
-    count = 2  # x and 1 not checked, always divisor
-    for i in range(2, int(x / 2) + 1):
-        if (x % i) == 0:
-            count += 1
-    return count
+def divisors(x: int) -> int:  # x and 1 not checked, always divisor
+    return 2 + len([i for i in range(2, int(x / 2) + 1) if (x % i) == 0])
 
-"""
-print(divisors(triangle(4)))
-print(divisors(triangle(5)))
-print(divisors(triangle(6)))
-print(divisors(triangle(7)))
-"""
 
 def primes(n: int, lista=[]) -> list[int]:
     if not lista:
@@ -70,19 +51,17 @@ def primes(n: int, lista=[]) -> list[int]:
             break
     return result
 
+
 def prime_dict(n: int) -> dict[int: int]:
     l = primes(n)
-    d = {}
-    for p in set(l):
-        d.update({p: l.count(p)})
-    return d
+    return {p: l.count(p) for p in set(l)}
+
 
 def divisors_fast(n: int) -> int:
     div = 1
-    for i,j in prime_dict(n).items():
+    for j in prime_dict(n).values():
         div *= (j+1)
     return div
-# print(divisors_fast(triangle(7)))
 
 
 def calc12():

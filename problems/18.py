@@ -56,20 +56,18 @@ triangle = [
     [63, 66,  4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31],
     [ 4, 62, 98, 27, 23,  9, 70, 98, 73, 93, 38, 53, 60,  4, 23]]
 
-# unused functions
-def str_to_int(tri):
-    rows = []
-    for row in tri:
-        row2 = []
-        for val in row:
-            row2.append(int(val))
-        rows.append(row2)
-    return rows
 
+# unused functions
+def str_to_int(tri: list[str]) -> list[list[int]]:
+    return [[int(val) for val in row] for row in tri]
+    
+    
 def read_triangle_from_file(f: str):
     return str_to_int([(line.replace('\n', '').split(' ')) for line in open(f, 'r')])
 
-def naive_path_finder(tri):
+
+def naive_path_finder(tri: list[str]) -> tuple[list[int], list[int], int]:
+    # NOT WORKING!
     n = len(tri)
     i = 0
     pos_in_row = 0
@@ -87,15 +85,16 @@ def naive_path_finder(tri):
         path.append(pos_in_row)
     return values, path, sum(values)
 
-def find_best_path(tri):
+def find_best_path(tri: list[str]) -> None:
     counter = 0
-    for i in range(len(tri)-2,-1,-1):
-    	for j in range(len(tri[i])):
-    		tri[i][j] = tri[i][j] + max(tri[i+1][j], tri[i+1][j+1])
-    		counter += 1
-    	tri.pop()
+    for i in range(len(tri) - 2, -1, -1):
+        for j in range(len(tri[i])):
+            tri[i][j] = tri[i][j] + max(tri[i+1][j], tri[i+1][j+1])
+            counter += 1
+        tri.pop()
     print('Found {} in {} iterations'.format(tri[0][0],counter))
 
 
 if __name__ == '__main__':
+    print(timer_wrapper(naive_path_finder, triangle))
     timer_wrapper(find_best_path, triangle)

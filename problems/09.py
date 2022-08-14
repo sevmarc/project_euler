@@ -10,14 +10,8 @@ a + b + c = 1000.
 Find the product abc.
 """
 
-def check_pyt(a: int, b: int, c: int) -> bool:
-    return a*a + b*b == c*c
+from function_collection.main import check_pyt
 
-"""
-# test
-print(check_pyt(1,2,3))
-print(check_pyt(3,4,5))
-"""
 
 if __name__ == '__main__':
     max_ = 998
