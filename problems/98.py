@@ -43,7 +43,7 @@ def check_squares(word1: str, word2: str) -> int:
     print(list(c))
 
 if __name__ == '__main__':
-    a= load_words('inputfiles/98_words.txt')
+    a= load_words('problems/inputfiles/98_words.txt')
     
     print(check_anagram("mazda","azmad"))
     print(check_anagram("mazda","azmad1"))

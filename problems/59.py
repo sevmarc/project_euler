@@ -48,7 +48,7 @@ def all_keys():
 
 start_time = time.time()
 
-msg = read_message_from_file('inputfiles/59.txt')
+msg = read_message_from_file('problems/inputfiles/59.txt')
 keylist = all_keys()
 # print(msg)
 # print(check_for_words('the', 2, "the man and the cow"))

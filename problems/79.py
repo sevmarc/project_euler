@@ -76,7 +76,7 @@ def combine(inputlist):
     return result
 
 
-entries = sorted(read_info("inputfiles/79.txt"))
+entries = sorted(read_info("problems/inputfiles/79.txt"))
 combine([entries[0], entries[1]])
 
 timer_wrapper(combine, entries)

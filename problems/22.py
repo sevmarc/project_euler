@@ -2,7 +2,7 @@
 import time
 
 def read_names():
-    f_open = open("inputfiles/22.txt", "r")
+    f_open = open("problems/inputfiles/22.txt", "r")
     for block in f_open:
         names = block.split("\",\"")
     prop_names = [n.replace('\"', '') for n in names]

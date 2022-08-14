@@ -79,7 +79,7 @@ def calc102(triangles):
             count += 1
     return count
 
-triangle_file = "inputfiles/102_triangles.txt"
+triangle_file = "problems/inputfiles/102_triangles.txt"
 triangles = load_triangles(triangle_file)
 
 print(timer_wrapper(calc102, triangles))

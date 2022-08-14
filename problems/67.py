@@ -26,7 +26,7 @@ def find_best_path(tri):
 
 start_time = time.time()
 
-triangle = read_triangle_from_file("inputfiles/67.txt")
+triangle = read_triangle_from_file("problems/inputfiles/67.txt")
 find_best_path(triangle)
 
 print(time.time() - start_time)

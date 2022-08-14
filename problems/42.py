@@ -1,7 +1,7 @@
 # 42.txt
 import string
 
-f_words = open("inputfiles/42.txt", "r")
+f_words = open("problems/inputfiles/42.txt", "r")
 wordlist = []
 for w in f_words:
     for a in (w.split('","')):

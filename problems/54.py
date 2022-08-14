@@ -270,5 +270,5 @@ def play_tournament(hand_pairs: list[list[Hand]]) -> int:
 
 
 if __name__ == '__main__':
-    hand_pairs = read_hands('inputfiles/54_poker.txt')
+    hand_pairs = read_hands('problems/inputfiles/54_poker.txt')
     print(play_tournament(hand_pairs))

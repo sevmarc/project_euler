@@ -15,7 +15,7 @@ import random
 import copy
 
 
-def load_sudoku(number: int, filename:str="inputfiles/96_sudoku.txt") -> list[str]:
+def load_sudoku(number: int, filename:str="problems/inputfiles/96_sudoku.txt") -> list[str]:
     """
     Uses pre-determined format
     """
@@ -271,6 +271,6 @@ if __name__ == '__main__':
     testing = False 
     
     if testing:
-        timer_wrapper(Sudoku(load_sudoku(6, "inputfiles/96_sudoku.txt"), debug=True).solve_sudoku)
+        timer_wrapper(Sudoku(load_sudoku(6, "problems/inputfiles/96_sudoku.txt"), debug=True).solve_sudoku)
     else:
         print(timer_wrapper(main))  # runtime: ~71 sec

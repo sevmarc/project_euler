@@ -3,7 +3,7 @@ https://oeis.org/A051626
 https://oeis.org/A051626/b051626.txt
 """
 
-f_open = open("inputfiles/26.txt", "r")
+f_open = open("problems/inputfiles/26.txt", "r")
 lines = {}
 for line in f_open:
     line = line.split()
