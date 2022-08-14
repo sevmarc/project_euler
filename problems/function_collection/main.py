@@ -152,8 +152,10 @@ def generate_all_pyth_triplets(max_val: int) -> list:
         pyth_triplets.append(generate_pythagorean_triple(p))
     return pyth_triplets
 
-def check_pyt(a: int, b: int, c: int) -> bool:
+def check_pyth(a: int, b: int, c: int) -> bool:
     """ Might be unused for now, may be useful """
+    s = sorted([a, b, c])
+    a, b, c = s[0], s[1], s[2]
     return a*a + b*b == c*c
 
 #--------------------imaginary numbers--------------------------
