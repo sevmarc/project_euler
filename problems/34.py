@@ -1,27 +1,24 @@
-def fact(n: int) -> int:
-    if n == 0:
-        return 1
-    return n * fact(n - 1)
+""" Digit factorials
+145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.
 
-def digfact(x: int):
-    w = str(x)
-    sum = 0
-    for l in w:
-        sum += fact(int(l))
-    return sum == x
+Find the sum of all numbers which are equal to the sum of the factorial of their digits.
 
-print(fact(1))
-print(fact(2))
-print(fact(3))
-print(fact(4))
-print(fact(5))
+Note: As 1! = 1 and 2! = 2 are not sums they are not included.
+"""
 
-low = 10
-high = 100000
+from function_collection.main import fact_recursive
 
-results = []
-for i in range(low, high):
-    if digfact(i):
-        results.append(i)
 
-print(results, sum(results))
+def digfact(x: int) -> bool:
+    return x == sum([fact_recursive(int(l)) for l in str(x)])
+
+
+def calc34():
+    low = 10
+    high = 100000
+
+    results = [i for i in range(low, high) if digfact(i)]
+    print(f"{results = }, {sum(results) = }")
+
+if __name__ == '__main__':
+    calc34()
