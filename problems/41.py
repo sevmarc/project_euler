@@ -1,30 +1,30 @@
-# Pandigital prime
+""" Pandigital prime
+We shall say that an n-digit number is pandigital if it 
+makes use of all the digits 1 to n exactly once. 
+For example, 2143 is a 4-digit pandigital and is also prime.
 
-from math import sqrt
+What is the largest n-digit pandigital prime that exists?
+"""
+
 from itertools import permutations
-
-def is_prime(x):
-    if x <= 1:
-        return False
-    check = 0
-    for i in range(2, int(sqrt(x) + 1)):
-        if x % i == 0:
-            check += 1
-            if check > 0:
-                return False
-    return True
-
-def scramble(x: str):
-    lst = list(permutations(x))
-    return lst
+from function_collection.main import is_prime
 
 digits = "123456789"
-max = 0
-for i in range(1, len(digits) + 1):
-    for s in scramble(digits[:i]):
-        u = ''
-        for l in s:
-            u += l
-        if is_prime(int(u)) and int(u) > max:
-            max = int(u)
-print(max)
+
+
+def scramble(x: str) -> list[tuple[str]]:
+    return list(permutations(x))
+
+
+def calc41() -> int:
+    max_ = 0
+    for i in range(1, len(digits) + 1):
+        for s in scramble(digits[:i]):
+            u = "". join([l for l in s])
+            if is_prime(int(u)) and int(u) > max_:
+                max_ = int(u)
+    return max_
+
+
+if __name__ == '__main__':
+    print(calc41())
