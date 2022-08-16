@@ -1,27 +1,28 @@
-# Combinatoric selections
-from math import sqrt, prod
+""" Combinatoric selections
+https://projecteuler.net/problem=53
+"""
 
-def fact(n):
-    if n == 0:
-        return 1
-    return n * fact(n - 1)
+from function_collection.main import fact_recursive
+from function_collection.main import timer_wrapper
 
-def below(n, r):
-    # np = prod([i for i in range(n,r-1,-1)])
-    # rp = prod([i for i in range(1, r+1)])
-    return int(fact(n) / ( fact(r) * fact(n - r) )) # float(np) / rp
 
-print(below(5, 3))
-print(below(23, 10))
+def below(n: int, r: int) -> int:
+    return int(fact_recursive(n) / (fact_recursive(r) * fact_recursive(n - r)))
 
-def checking():
+
+def calc53() -> int:
     limit = 1000000
-    result = []
-    for i in range(1, 101):
-        for j in range(1, i):
-            if below(i , j) > limit:
-                result.append((i, j))
-    print(result)
-    print(len(result))
+    result_list = [(i, j) for i in range(1, 101)
+                   for j in range(1, i) if below(i, j) > limit]
+    return len(result_list)
 
-checking()
+
+if __name__ == '__main__':
+    testing = False
+
+    if testing:
+        print(below(5, 3))
+        print(below(23, 10))
+    else:
+        result = timer_wrapper(calc53)
+        print(f"{result = }")
