@@ -1,18 +1,26 @@
-from math import sqrt
-# Distinct primes factors
+""" Distinct primes factors
+The first two consecutive numbers to have two distinct 
+prime factors are:
 
-def is_prime(x):
-    if x <= 1:
-        return False
-    check = 0
-    for i in range(2, int(sqrt(x) + 1)):
-        if x % i == 0:
-            check += 1
-            if check > 0:
-                return False
-    return True
+14 = 2 x 7
+15 = 3 x 5
 
-def primes(n, lista=[]):
+The first three consecutive numbers to have three distinct 
+prime factors are:
+
+644 = 2² x 7 x 23
+645 = 3 x 5 x 43
+646 = 2 x 17 x 19.
+
+Find the first four consecutive integers to have four distinct 
+prime factors each. What is the first of these numbers?
+"""
+
+from function_collection.main import is_prime
+from function_collection.main import timer_wrapper
+
+
+def primes(n: int, lista: list = []) -> list[int]:
     if not lista:
         result = []
         if is_prime(n):
@@ -31,34 +39,28 @@ def primes(n, lista=[]):
             break
     return result
 
-def prime_dict(n):
+
+def prime_dict(n: int) -> int:
     l = primes(n)
-    d = {}
-    for p in set(l):
-        d.update({p: l.count(p)})
-    return len(set(sorted(d)))  # d
+    pd = {p: l.count(p) for p in set(l)}
+    return len(set(sorted(pd)))
 
-""""
-print(prime_dict(641))
-print(prime_dict(642))
-print(prime_dict(643))
-print(prime_dict(644))
-print(prime_dict(645))
-print(prime_dict(646))
-"""
 
-lookfor = 4
-maxval = 1000000
-current = 0
-for i in range(maxval):
-    if prime_dict(i) >= lookfor:
-        current += 1
-    else:
-        current = 0
-    if current == lookfor:
-        print("FOUND IT!")
-        print(i-3, prime_dict(i-3))
-        print(i-2, prime_dict(i-2))
-        print(i-1, prime_dict(i-1))
-        print(i, prime_dict(i))
-        break
+def calc47() -> int:
+    lookfor = 4
+    current = i = 0
+    found = False
+
+    while not found:
+        if prime_dict(i) >= lookfor:
+            current += 1
+        else:
+            current = 0
+        if current == lookfor:
+            found = True
+            return i - 3
+        i += 1
+
+if __name__ == '__main__':
+    result = timer_wrapper(calc47)
+    print(f"{result = }")

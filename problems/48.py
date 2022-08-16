@@ -1,29 +1,19 @@
-# Self powers
-from math import pow
-import time
+""" Self powers
+The series, 1^1 + 2^2 + 3^3 + ... + 10^10 = 10405071317.
 
-def exp_by_squaring(x, n):
-    if n < 0:
-        return exp_by_squaring(1 / x, -n)
-    elif n == 0:
-        return  1
-    elif n == 1:
-        return x
-    elif n % 2 == 0:
-        return exp_by_squaring(x * x,  n / 2)
-    else:
-        return x * exp_by_squaring(x * x, (n - 1) / 2)
+Find the last ten digits of the series, 1^1 + 2^2 + 3^3 + ... + 1000^1000.
+"""
 
-def summa():
-    sum = 0
-    iter = 1000
-    for i in range(1, iter + 1):
-        # print(i)
-        sum += int(exp_by_squaring(i, i))
-    print(str(sum)[-10:])
+from function_collection.main import exp_by_squaring
+from function_collection.main import timer_wrapper
 
-start_time = time.time()
 
-summa()
+def summa(iter: int = 1000) -> str:
+    sum_of_powers = sum([int(exp_by_squaring(i, i))
+                        for i in range(1, iter + 1)])
+    return str(sum_of_powers)[-10:]
 
-print(time.time() - start_time)
+
+if __name__ == '__main__':
+    result = timer_wrapper(summa)
+    print(f"{result = }")
