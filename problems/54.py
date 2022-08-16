@@ -228,7 +228,7 @@ def compete_hands(hand1: Hand, hand2: Hand) -> bool:
     """
     Battle of 2 pairs, returns True if hand1 wins
     """
-    if hand1.rank[0] == hand2.rank[0]:  # same type
+    def check_second_rand() -> bool:
         if hand1.rank[1] == hand2.rank[1]:
             # checking highest different card
             for i in range(5):
@@ -242,10 +242,17 @@ def compete_hands(hand1: Hand, hand2: Hand) -> bool:
             return True
         else:
             return False
-    elif hand1.rank[0] > hand2.rank[0]:
-        return True
+    
+    def check_first_rank() -> bool:
+        if hand1.rank[0] > hand2.rank[0]:
+            return True
+        else:
+            return False
+    
+    if hand1.rank[0] == hand2.rank[0]:  # same type
+        return check_second_rand()
     else:
-        return False
+        return check_first_rank()
 
 
 def read_hands(poker_file: str, printer: bool=False) -> list[tuple[Hand]]:
@@ -271,5 +278,6 @@ def play_tournament(hand_pairs: list[list[Hand]]) -> int:
 
 
 if __name__ == '__main__':
-    hand_pairs = read_hands(handle_filepath('/inputfiles/54_poker.txt'))
-    print(play_tournament(hand_pairs))
+    hand_pairs = read_hands(handle_filepath('inputfiles/54_poker.txt'))
+    result = timer_wrapper(play_tournament, hand_pairs)
+    print(f"{result = }")

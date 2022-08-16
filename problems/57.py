@@ -1,6 +1,5 @@
-# Square root convergents
+""" Square root convergents
 
-"""
 expansions:
 3   /   2       1+  1/2
 7   /   5           2/5
@@ -13,7 +12,7 @@ expansions:
 """
 
 
-def generate_exp(n: int):
+def generate_exp(n: int) -> list[int]:
     if n == 1:
         return [3, 2]
     else:
@@ -23,14 +22,12 @@ def generate_exp(n: int):
         return [num, denum]
 
 
-def calc_larger_numerator(limit: int):
-    lst = [generate_exp(i) for i in range(1, limit)]
-    count = 0
-    for i in range(1, limit + 1):
-        current = generate_exp(i)
-        if len(str(current[0])) > len(str(current[1])):
-            count += 1
-    print('found: ', count)
+def calc_larger_numerator(limit: int) -> int:
+    larger_numerator = [generate_exp(i) for i in range(
+        1, limit + 1) if len(str(generate_exp(i)[0])) > len(str(generate_exp(i)[1]))]
+    return len(larger_numerator)
 
 
-calc_larger_numerator(1000)
+if __name__ == '__main__':
+    result = calc_larger_numerator(1000)
+    print(f"{result = }")
