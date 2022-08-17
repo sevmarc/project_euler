@@ -8,7 +8,10 @@ def timer_wrapper(f, args=None):
     """ A function that prints how long f(args) ran for """
     start_time = time.time()
     if args:
-        a = f(args)
+        if isinstance(args, list):
+            a = f(*args)
+        else:
+            a = f(args)
     else:
         a = f()
     print('Elapsed time: ', time.time() - start_time)
