@@ -1,20 +1,15 @@
-import time
-from math import pow
+""" Powerful digit counts
+The 5-digit number, 16807=75, is also a fifth power. 
+Similarly, the 9-digit number, 134217728=89, is a ninth power.
+
+How many n-digit positive integers exist which are also an nth power?
+"""
+
+from unicodedata import digit
+from function_collection.main import exp_by_squaring, timer_wrapper
 
 
-def exp_by_squaring(x, n):
-    if n < 0:
-        return exp_by_squaring(1 / x, -n)
-    elif n == 0:
-        return  1
-    elif n == 1:
-        return x
-    elif n % 2 == 0:
-        return exp_by_squaring(x * x,  n / 2)
-    else:
-        return x * exp_by_squaring(x * x, (n - 1) / 2)
-
-def power_counter():
+def power_counter(debug: bool = False) -> int:
     digit_limit = 100
     limit = 100000
     count = 0
@@ -27,12 +22,18 @@ def power_counter():
             if n == length:
                 found.append([j, n, int(exp_by_squaring(j, n))])
                 count += 1
-    for f in found:
-        print(f)
-    print(count)
+    if debug:
+        for f in found:
+            print(f)
+    return count
 
-start_time = time.time()
 
-power_counter()
+def power_counter2() -> int:
+    digit_limit = 100
+    limit = 100000
+    return len([1 for n in range(1, digit_limit) for j in range(1, limit) if n == len(str(int(exp_by_squaring(j, n))))])
 
-print(time.time() - start_time)
+
+if __name__ == '__main__':
+    result = timer_wrapper(power_counter)
+    print(f"{result = }")
