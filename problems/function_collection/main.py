@@ -3,8 +3,8 @@ from math import gcd as bltin_gcd
 import time
 
 
-#-------------------------functional-------------------------
-def timer_wrapper(f, args=None):
+# -------------------------functional-------------------------
+def timer_wrapper(f: callable, args=None):
     """ A function that prints how long f(args) ran for """
     start_time = time.time()
     if args:
@@ -17,7 +17,9 @@ def timer_wrapper(f, args=None):
     print('Elapsed time: ', time.time() - start_time)
     return a
 
-#-------------------------primes-------------------------
+# -------------------------primes-------------------------
+
+
 def is_prime(x: int) -> bool:
     """ Checks if a number is prime """
     if x <= 1:
@@ -30,6 +32,7 @@ def is_prime(x: int) -> bool:
                 return False
     return True
 
+
 def next_prime(n: int) -> int:
     """ First prime after n"""
     while True:
@@ -37,7 +40,8 @@ def next_prime(n: int) -> int:
         if is_prime(n):
             return n
 
-def unique_prime_divisors(x, primes=[]):
+
+def unique_prime_divisors(x: int, primes: list[int] = []) -> list[int]:
     """ Returns a set of all prime divisors """
     if primes:
         temp = primes
@@ -45,23 +49,26 @@ def unique_prime_divisors(x, primes=[]):
         temp = []
     if is_prime(x):
         temp.append(x)
-        return set(temp)
+        return list(set(temp))
     for i in range(2, int(x/2) + 1):
         if x % i == 0:
             temp.append(i)
             return unique_prime_divisors(int(x / i), temp)
 
-def generate_primes(x: int) -> list:
-    """ Return a list of primes up to input (x) """
-    return [i for i in range(1,x) if is_prime(i)]
 
-#-------------------------exponents-------------------------
-def exp_by_squaring(x, n):
+def generate_primes(x: int) -> list[int]:
+    """ Return a list of primes up to input (x) """
+    return [i for i in range(1, x) if is_prime(i)]
+
+# -------------------------exponents-------------------------
+
+
+def exp_by_squaring(x: int, n: int) -> int:
     """ Faster method for exponents, using squaring """
     if n < 0:
         return exp_by_squaring(1 / x, -n)
     elif n == 0:
-        return  1
+        return 1
     elif n == 1:
         return x
     elif n % 2 == 0:
@@ -69,20 +76,25 @@ def exp_by_squaring(x, n):
     else:
         return x * exp_by_squaring(x * x, (n - 1) / 2)
 
+
 def is_square(x: int) -> bool:
     """ Function for checking if an integer is a square """
     return sqrt(x).is_integer()
+
 
 def is_power(x: int, n: int):
     """ Function for checking if an integer is nth power """
     return (x ** (1/float(n))).is_integer()
 
-#-------------------------divisors-------------------------
-def proper_divisors(x:int) -> list:
+# -------------------------divisors-------------------------
+
+
+def proper_divisors(x: int) -> list[int]:
     """ Naive method for divs """
     return [i for i in range(1, int(x/2 + 1)) if x % i == 0]
 
-def proper_divisors_fast(x:int) -> list:
+
+def proper_divisors_fast(x: int) -> list[int]:
     div = [1]  # everything is divisible by 1
     looking_limit = int(x / 2 + 1)
     current = 2
@@ -96,47 +108,56 @@ def proper_divisors_fast(x:int) -> list:
         current += 1
     return list(set(div))
 
+
 def is_perfect(x: int) -> bool:
     return sum(proper_divisors_fast(x)) == x
+
 
 def prime_divisors_with_quotients(x: int) -> dict:
     pass
 
-#-------------------------strings--------------------------
+# -------------------------strings--------------------------
+
+
 def is_palindrome(x: int) -> bool:
     return str(x) == str(x)[::-1]
 
 
-#----------------------factorization--------------------------
+# ----------------------factorization--------------------------
+def listprod(lst: list[int]) -> int:
+    prod_ = 1
+    for i in lst:
+        prod_ *= i
+    return prod_
+
+
 def fact_recursive(n: int) -> int:
     """ Recursive factorization, n > 0 """
     if n == 0:
         return 1
     return n * fact_recursive(n-1)
 
+
 def fact_linear(n: int) -> int:
     """ Linear factorization, n > 0 """
     if n == 0:
         return 1
-    prod_ = 1
-    for i in range(1, n+1):
-        prod_ *= i
-    return prod_
+    return listprod(range(1, n+1))
+
 
 def binomial_coefficient(n: int, k: int) -> int:
     return int(fact_linear(n) / (fact_linear(k) * fact_linear(n-k)))
 
-#-----------------------pythagorean triples---------------------
-def generate_all_pairs(max_num: int) -> list:
+# -----------------------pythagorean triples---------------------
+
+
+def generate_all_pairs(max_num: int) -> list[int]:
     """ Used to generate imaginary numbers with whole coordinates
     4 -> [[2, 1], [3, 1], [3, 2], [4, 1], [4, 2], [4, 3]] """
-    pairs = []
-    for i in range(1, max_num + 1):
-        for j in range(1, i):
-            pairs.append([i, j])
-    return pairs
+    return [[i, j] for i in range(1, max_num + 1) for j in range(1, i)]
 
-def generate_pythagorean_triple(imaginary_coords: list) -> list:
+
+def generate_pythagorean_triple(imaginary_coords: list[int]) -> list[int]:
     """ Method involving imaginary numbers:
     (u+vi)^2 = (u^2 - v^2) + (2uv)i
     len(u+vi) =(u^2 + v^2)
@@ -145,15 +166,16 @@ def generate_pythagorean_triple(imaginary_coords: list) -> list:
     a = u**2 - v**2
     b = 2*u*v
     c = u**2 + v**2
-    return [a,b,c]
+    return [a, b, c]
 
-def generate_all_pyth_triplets(max_val: int) -> list:
-    pairs = generate_all_pairs(max_val)
-    pyth_triplets = []
-    for p in pairs:
-        print(p, ': ', generate_pythagorean_triple(p))
-        pyth_triplets.append(generate_pythagorean_triple(p))
+
+def generate_all_pyth_triplets(max_val: int, debug: bool = False) -> list[int]:
+    pyth_triplets = [generate_pythagorean_triple(
+        p) for p in generate_all_pairs(max_val)]
+    if debug:
+        [print(f"{triplet}") for triplet in pyth_triplets]
     return pyth_triplets
+
 
 def check_pyth(a: int, b: int, c: int) -> bool:
     """ Might be unused for now, may be useful """
@@ -161,7 +183,9 @@ def check_pyth(a: int, b: int, c: int) -> bool:
     a, b, c = s[0], s[1], s[2]
     return a*a + b*b == c*c
 
-#--------------------imaginary numbers--------------------------
+# --------------------imaginary numbers--------------------------
+
+
 class Imaginary():
     """
     Imaginary Number
@@ -204,6 +228,7 @@ class Imaginary():
     +	__POS__(SELF, OTHER)
     ~	__INVERT__(SELF, OTHER)
     """
+
     def __init__(self, a, b) -> None:
         self.re = a
         self.im = b
@@ -252,4 +277,3 @@ class Imaginary():
 
     def __str__(self):
         return f"{self.re} + {self.im}i"
-    
