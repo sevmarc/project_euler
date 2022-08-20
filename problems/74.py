@@ -23,41 +23,29 @@ How many chains, with a starting number below one million, contain exactly sixty
 """
 
 from function_collection.main import timer_wrapper
+from function_collection.main import fact_recursive
 
 
-def factor_rec(n: int) -> int:
-    if n <= 1:
-        return 1
-    return n * factor_rec(n -1)
+factor_dict = {str(i): fact_recursive(i) for i in range(10)}
+
 
 def sum_factor_digits_calc(x: int) -> int:
-    sum_ = 0
-    for num_ in str(x):
-        sum_ += factor_rec(int(num_))
-    return sum_
+    return sum([fact_recursive(int(num_)) for num_ in str(x)])
 
-factor_dict = {}
-for i in range(10):
-    factor_dict.update( {str(i): factor_rec(i)} )
 
 def sum_factor_digits_lookup(x: int) -> int:
-    sum_ = 0
-    for num_ in str(x):
-        sum_ += factor_dict[num_]
-    return sum_
-
-def timer_test1():
-    maxnum = 1000000
-    for i in range(maxnum):
-        sum_factor_digits_calc(i)
-
-def timer_test2():
-    maxnum = 1000000
-    for i in range(maxnum):
-        sum_factor_digits_lookup(i)
+    return sum([factor_dict[num_] for num_ in str(x)])
 
 
-def cycle_of_factorials(start: int, acc=None):
+def timer_test1() -> None:
+    [sum_factor_digits_calc(i) for i in range(1000000)]
+
+
+def timer_test2() -> None:
+    [sum_factor_digits_lookup(i) for i in range(1000000)]
+
+
+def cycle_of_factorials(start: int, acc=None) -> int:
     current = sum_factor_digits_lookup(start)
 
     if acc:
@@ -65,27 +53,20 @@ def cycle_of_factorials(start: int, acc=None):
     else:
         results = [start]
 
-    if current in results:  # or is_perfect(current) 
+    if current in results:  # or is_perfect(current)
         return len(results)
     else:
         results.append(current)
     return cycle_of_factorials(current, results)
 
-def calc74():
-    i = 0
-    goal_len = 60
-    count = 0
-    starter_limit = 1000000
-    while(i <= starter_limit):
-        len_ = cycle_of_factorials(i)
-        if len_ == goal_len:
-            count += 1
-        i += 1
-    return count
 
-testing = False
+def calc74(limit_: int = 1000000, goal_len: int = 60) -> int:
+    return len([1 for i in range(limit_ + 1) if cycle_of_factorials(i) == goal_len])
+
 
 if __name__ == '__main__':
+    testing = False
+
     if testing:
         print(factor_dict)
         timer_wrapper(timer_test1)
@@ -100,4 +81,4 @@ if __name__ == '__main__':
         print(cycle_of_factorials(540, []))
 
     else:
-        print(timer_wrapper(calc74))  # ~55 sec
+        print(timer_wrapper(calc74))  # ~15 sec
