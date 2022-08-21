@@ -1,4 +1,4 @@
-"""
+""" Sudoku solver
 Su Doku (Japanese meaning number place) is the name given to a popular puzzle concept. Its origin is unclear, but credit must be attributed to Leonhard Euler who invented a similar, and much more difficult, puzzle idea called Latin Squares. The objective of Su Doku puzzles, however, is to replace the blanks (or zeros) in a 9 by 9 grid in such that each row, column, and 3 by 3 box contains each of the digits 1 to 9. Below is an example of a typical starting puzzle grid and its solution grid.
 
 p096_1.png     p096_2.png
@@ -16,19 +16,19 @@ import random
 import copy
 
 
-def load_sudoku(number: int, filename:str=handle_filepath("inputfiles/96_sudoku.txt")) -> list[str]:
+def load_sudoku(number: int, filename: str = handle_filepath("inputfiles/96_sudoku.txt")) -> list[str]:
     """
     Uses pre-determined format
     """
     if number > 50:  # overflow
         print("This sudoku does not exist!")
-        return None
+        return []
     n = str(number).zfill(2)  # starts with '01'
     keyword = f"Grid {n}\n"
     with open(filename, "r") as sudokus:
         all_lines = sudokus.readlines()
         startline = all_lines.index(keyword)
-        sudoku = all_lines[(startline + 1) : (startline + 10)]
+        sudoku = all_lines[(startline + 1): (startline + 10)]
         sudoku_formatted = [l.strip('\n') for l in sudoku]
         return sudoku_formatted
 
@@ -42,11 +42,12 @@ class Cell:
     - column
     - group (3x3)
     """
-    def __init__(self, position: list[int], value: int):
+
+    def __init__(self, position: list[int], value: int) -> None:
         self.value = value
-        self.possibilities = [1,2,3,4,5,6,7,8,9]
+        self.possibilities = [1, 2, 3, 4, 5, 6, 7, 8, 9]
         self.unknown = False
-        
+
         if value != 0:
             self.possibilities = [value]
         else:  # this is placed in unknown cells by default
@@ -55,7 +56,7 @@ class Cell:
         self.x, self.y = self.position
         self.group_id = self.x // 3 + self.y // 3 * 3  # group-magic
 
-    def set_value(self, val):
+    def set_value(self, val: int) -> None:
         self.value = val
         self.possibilities = [val]
         self.unknown = False
@@ -76,29 +77,31 @@ class Sudoku:
     Sudoku class
     Contains 9x9 cell objects
     """
-    def __init__(self, lines_of_sudoku: list[str], debug=False):
+
+    def __init__(self, lines_of_sudoku: list[str], debug=False) -> None:
         self.debug = debug
         self.backup = []
         self.sudoku_cells = []
         self.storage = []
         self.fill_cells(lines_of_sudoku)
 
-    def fill_cells(self, lines_of_sudoku: list[str]):
+    def fill_cells(self, lines_of_sudoku: list[str]) -> None:
         for linecounter, line in enumerate(lines_of_sudoku):
             for rowcounter, row in enumerate(line):
                 cell = Cell([rowcounter, linecounter], int(row))
                 self.sudoku_cells.append(cell)
                 cell_copy = copy.copy(cell)
-                self.storage.append(cell_copy)  # to be restored in case of trouble
+                # to be restored in case of trouble
+                self.storage.append(cell_copy)
         if self.debug:
             print(f"Original sudoku: \n{str(self)}")
-    
+
     def get_cell_by_pos(self, pos: list[int]) -> Cell:
         return self.sudoku_cells[pos[0] + pos[1] * 9]
 
     def get_row_of_cells(self, row: int) -> list[Cell]:
         return [cell for cell in self.sudoku_cells if cell.x == row]
-    
+
     def get_line_of_cells(self, line: int) -> list[Cell]:
         return [cell for cell in self.sudoku_cells if cell.y == line]
 
@@ -116,7 +119,7 @@ class Sudoku:
         """
         # need to turn position into group_id
         return [cell for cell in self.sudoku_cells if cell.group_id == group_id]
-    
+
     def count_unknowns(self) -> int:
         return len([cell for cell in self.sudoku_cells if cell.unknown])
 
@@ -138,31 +141,24 @@ class Sudoku:
                     if self.debug:
                         print(f"Found it! {self.count_unknowns()}")
                         print(cell)
-        
+
         if nothing_found:
             return nothing_found
         else:
             return self.check_cell_possibilities()
-        
+
     def __str__(self) -> str:
-        rows = ""
-        for i in range(9):
-            cells = self.get_line_of_cells(i)
-            w = '|'
-            for v in cells:
-                w += str(v.value) + '|'
-            w += '\n'
-            rows += w
-        return rows
+        return "".join('|' + ''.join([str(v.value) + '|' for v in self.get_line_of_cells(i)]) + '\n' for i in range(9))
 
     def __repr__(self) -> str:
         return str(self)
 
-    def solve_sudoku(self):
+    def solve_sudoku(self) -> int:
         """ The main algorithm """
         while self.count_unknowns() > 0 or not self.check_integrity():
             if self.debug:
-                print(f'>> Remaining possibilities: {sum([len(cell.possibilities) for cell in self.sudoku_cells])}')
+                print(
+                    f'>> Remaining possibilities: {sum([len(cell.possibilities) for cell in self.sudoku_cells])}')
                 print(self)
             # checking for possibilities, if none found, we have to make a guess
             notfound = self.check_cell_possibilities()
@@ -171,7 +167,8 @@ class Sudoku:
                 if self.debug:
                     print('<< Integrity broke! ')
                 temp = self.restore_backup()
-                temp.get_cell_by_pos(self.tip_cell.position).elliminate_possibility(self.tip_val)
+                temp.get_cell_by_pos(
+                    self.tip_cell.position).elliminate_possibility(self.tip_val)
                 return temp.solve_sudoku()
             # if no unknowns left, and integrity is kept, we are doen
             if self.count_unknowns() == 0:
@@ -183,28 +180,29 @@ class Sudoku:
                 self.tip_val, self.tip_cell = self.guess_a_value()
                 if self.debug:
                     print(f'<< Creating backup... len: {len(self.backup)}')
-                
+
         if not self.check_integrity():
             print('PROBLEM!')
-        
+
         print("DONE! ")
         print(self)
-        result = ''
-        for i in range(3): 
-            result += str(self.sudoku_cells[i].value)
+        result = ''.join([str(self.sudoku_cells[i].value) for i in range(3)])
         return int(result)
-    
-    def guess_a_value(self) -> tuple[int, Cell]:
-        """ Sometimes we don't have sure answers """
-        min_ = min([len(cell.possibilities) for cell in self.sudoku_cells if cell.unknown])
-        mins = [cell for cell in self.sudoku_cells if len(cell.possibilities) == min_]
 
-        random_method = False
+    def guess_a_value(self, randomize: bool = False) -> tuple[int, Cell]:
+        """ Sometimes we don't have sure answers """
+        min_ = min([len(cell.possibilities)
+                   for cell in self.sudoku_cells if cell.unknown])
+        mins = [cell for cell in self.sudoku_cells if len(
+            cell.possibilities) == min_]
+
+        random_method = randomize
         if random_method:
             index = random.randint(0, len(mins) - 1)
             cell = mins[index]
         else:
-            c = Counter([cell.value for cell in self.sudoku_cells if not cell.unknown])
+            c = Counter(
+                [cell.value for cell in self.sudoku_cells if not cell.unknown])
             c = sorted(c.items(), key=lambda item: (-item[1], item[0]))
             for co in c:
                 common_val = co[0]
@@ -214,12 +212,13 @@ class Sudoku:
                         break
             if not cell:
                 cell = mins[0]
-        
+
         guess = cell.possibilities[0]
         old_possibilities = cell.possibilities
         cell.set_value(guess)
         if self.debug:
-            print(f'>> Guessing: {cell.position}: {cell.value}, because: {old_possibilities}')
+            print(
+                f'>> Guessing: {cell.position}: {cell.value}, because: {old_possibilities}')
         return guess, cell
 
     def check_integrity(self) -> bool:
@@ -246,7 +245,7 @@ class Sudoku:
                         return False
         return True
 
-    def restore_backup(self):
+    def restore_backup(self) -> "Sudoku":
         if self.debug:
             print(f">> Restoring backups... len: {len(self.backup)}")
         backups = self.backup
@@ -256,8 +255,7 @@ class Sudoku:
         return temp
 
 
-
-def main():
+def main() -> int:
     num_of_sudokus = 50  # 1 to 50
     results = []
     for s in range(1, num_of_sudokus + 1):
@@ -269,9 +267,11 @@ def main():
 
 
 if __name__ == '__main__':
-    testing = False 
-    
+    testing = False
+
     if testing:
-        timer_wrapper(Sudoku(load_sudoku(6, handle_filepath("inputfiles/96_sudoku.txt")), debug=True).solve_sudoku)
+        timer_wrapper(Sudoku(load_sudoku(6, handle_filepath(
+            "inputfiles/96_sudoku.txt")), debug=True).solve_sudoku)
     else:
-        print(timer_wrapper(main))  # runtime: ~71 sec
+        result = timer_wrapper(main)  # runtime: ~30 sec
+        print(f"{result = }")

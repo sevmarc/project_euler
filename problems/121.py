@@ -10,18 +10,15 @@ Find the maximum prize fund that should be allocated to a single game in which f
 
 from function_collection.main import binomial_coefficient
 
+
 def nth_game(n: int) -> int:
-    bi_sum = 0
-    for i in range(0, int((n-1)/2) + 1):
-        bi_sum += binomial_coefficient(n, i)
-    return bi_sum
+    return sum([binomial_coefficient(n, i) for i in range(0, int((n - 1)/2) + 1)])
+
 
 def win_n_game(n: int) -> int:
-    sum_ = 0
-    for i in range(1, n+1):
-        sum_ += nth_game(i)
-    print(sum_)
-    return sum_
+    return sum([nth_game(i) for i in range(1, n + 1)])
+
 
 if __name__ == '__main__':
-    win_n_game(15)
+    result = win_n_game(15)
+    print(f"{result = }")
