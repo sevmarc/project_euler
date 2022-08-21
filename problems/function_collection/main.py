@@ -126,8 +126,9 @@ def is_palindrome(x: int) -> bool:
 # ----------------------factorization--------------------------
 def listprod(lst: list[int]) -> int:
     prod_ = 1
-    for i in lst:
-        prod_ *= i
+    if lst:
+        for i in lst:
+            prod_ *= i
     return prod_
 
 
