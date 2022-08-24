@@ -15,7 +15,7 @@ from function_collection.main import timer_wrapper
 from math import sqrt
 
 
-def generate_all_char_combinations(x: int, acc = []) -> list[list[int]]:
+def generate_all_char_combinations(x: int, acc=[]) -> list[list[int]]:
     """ 
     6724
     6 7 2 4
@@ -48,7 +48,7 @@ def s_check(x: int) -> bool:
 
 if __name__ == '__main__':
     testing = True
-    
+
     if testing:
         # print(generate_all_char_combinations(672))
         a = generate_all_char_combinations(6724)
@@ -56,6 +56,3 @@ if __name__ == '__main__':
         print(f"{len(a) = }")
         for i in generate_all_char_combinations(6724):
             print(i)
-        
-    else:
-        pass

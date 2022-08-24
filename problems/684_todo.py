@@ -49,13 +49,7 @@ if __name__ == '__main__':
     if testing:
         print(f"{fibonacci(100) = }")
         print(f"{sum_smallest_nums(20) = }")
-        # timer_wrapper(print, f"{find_smallest_num2(100000) = }")
         timer_wrapper(print, f"{find_smallest_num(100000) = }")
-        
-        # print(f"{debug(fibonacci(90)) = }")
         print(f"{find_smallest_num(13) = }")
-
-        # print(f"{sum_smallest_nums2(fibonacci(90)) = }")
-        # print(f"{summing_debug(fibonacci(90)) = }")
         timer_wrapper(sum_smallest_nums, 20)
         
