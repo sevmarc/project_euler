@@ -1,5 +1,9 @@
-import time
+""" Odd period square roots
+
+"""
+
 from math import sqrt
+
 
 def expand_sqrt(X: int):
     a0 = int(sqrt(X))
@@ -13,10 +17,10 @@ def expand_sqrt(X: int):
         else:
             prev_prev = a0
         mult = (X - prev_prev ** 2)
-        temp = 
-        # temp = int(mult * (sqrt(X) + prev) / (X - prev ** 2))
+        temp = int(mult * (sqrt(X) + prev) / (X - prev ** 2))
         repeating.append(temp)
     return find_repeat_cycle(repeating), repeating
+
 
 def find_repeat_cycle(values: list):
     cycle = None
@@ -34,13 +38,15 @@ def find_repeat_cycle(values: list):
     return None
 
 
+if __name__ == '__main__':
+    testing = True
 
-"""
-print(find_repeat_cycle([1,2,3,4,5,1,2,3,4]))
-print(find_repeat_cycle([1,1,1,1]))
-print(find_repeat_cycle([1,2,1,2]))
-print(find_repeat_cycle([1,2,1,1]))
-print(find_repeat_cycle([1,2,2,2]))
-print(find_repeat_cycle([1,2,3,1,2,3,1]))
-"""
-print(expand_sqrt(23))
+    if testing:
+        print(find_repeat_cycle([1, 2, 3, 4, 5, 1, 2, 3, 4]))
+        print(find_repeat_cycle([1, 1, 1, 1]))
+        print(find_repeat_cycle([1, 2, 1, 2]))
+        print(find_repeat_cycle([1, 2, 1, 1]))
+        print(find_repeat_cycle([1, 2, 2, 2]))
+        print(find_repeat_cycle([1, 2, 3, 1, 2, 3, 1]))
+    else:
+        print(expand_sqrt(23))
