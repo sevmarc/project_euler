@@ -16,41 +16,40 @@ from function_collection.main import timer_wrapper
 
 def filter_rev(x: int) -> bool:
     """ starts or ends with zero -> not reversible """
-    if str(x)[0] == '0' or str(x)[-1] == '0':
-        return False
-    else:
-        return True
+    return not (str(x)[0] == '0' or str(x)[-1] == '0')
+
 
 def reverse(x: int) -> int:
     return int(''.join(reversed(str(x))))
+
 
 def reversed_sumcheck(x: int) -> bool:
     if filter_rev(x):
         odds = '13579'
         rev_sum = x + reverse(x)
         for l in str(rev_sum):
-            # print(l, l not in odds)
-            if l not in odds:
-                return False
+            return l in odds
         return True
     else:
         return False
 
-def reversed_sumcheck_faster(x: int) -> bool:
-    if filter_rev(x):
-        for i in range(len(str(x))):
-            pass
+
+def reversed_sumcheck_faster() -> bool:
+    """
+    Optimization - To be implemented
+    Returns:
+        bool: True, if reversible
+    """
+    pass
+
 
 def calc_145(boundary: int) -> int:
-    sum_ = 0
-    for i in range(boundary):
-        if reversed_sumcheck(i):
-            sum_ += 1
-    return sum_
+    return len([1 for i in range(boundary) if reversed_sumcheck(i)])
 
 
-testing = False
 if __name__ == '__main__':
+    testing = False
+
     if testing:
         print(36, reverse(36), reversed_sumcheck(36), filter_rev(36))
 
