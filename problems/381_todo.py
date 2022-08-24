@@ -11,28 +11,21 @@ Find ∑ S(p) for 5 ≤ p < 10^8.
 """
 
 from function_collection.main import is_prime, timer_wrapper
+from function_collection.main import fact_recursive
 
-def fact(n):
-    if n == 0:
-        return 1
-    return n * fact(n-1)
 
-def addition(i):
-    return(fact(i-1) + \
-           fact(i-2) + \
-           fact(i-3) + \
-           fact(i-4) + \
-           fact(i-5)) % i
+def addition(i: int) -> int:
+    return (fact_recursive(i-1) +
+            fact_recursive(i-2) +
+            fact_recursive(i-3) +
+            fact_recursive(i-4) +
+            fact_recursive(i-5)) % i
 
-def solution():
-    l = []
-    lim_ = int(1e4)
-    for i in range(5, lim_):
-        if is_prime(i):
-            l.append(addition(i))
 
-    print(sum(l))
+def solution(lim_: int = int(1e4)) -> int:
+    return sum([addition(i) for i in range(5, lim_) if is_prime(i)])
 
 
 if __name__ == '__main__':
-    timer_wrapper(solution)
+    result = timer_wrapper(solution)
+    print(f"{result = }")
