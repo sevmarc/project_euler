@@ -1,4 +1,5 @@
 *.pyo
 *.pyc
 /__pycache__
+/function_collection/__pycache__
 .vscode/*
