@@ -1,4 +1,4 @@
-"""
+""" Largest exponential	
 Comparing two numbers written in index form like 2**11 and 3**7 is not difficult, 
 as any calculator would confirm that 2**11 = 2048 < 3**7 = 2187.
 
@@ -11,7 +11,8 @@ determine which line number has the greatest numerical value.
 
 NOTE: The first two lines in the file represent the numbers in the example given above.
 """
-from function_collection.main import timer_wrapper, exp_by_squaring
+
+from function_collection.main import timer_wrapper
 from function_collection.utils import handle_filepath
 from math import pow
 import sys
@@ -19,13 +20,15 @@ import sys
 sys.setrecursionlimit(5000)
 
 
-def load_base_exp(base_exp):
+def load_base_exp(base_exp: str) -> list[list[int]]:
     exps = []
-    with  open(base_exp) as be:
+    with open(base_exp) as be:
         lines = be.readlines()
         for l in lines:
-            exps.append([int(l.split(',')[0]), int(l.split(',')[1].strip('\n'))])
+            exps.append([int(l.split(',')[0]), int(
+                l.split(',')[1].strip('\n'))])
     return exps
+
 
 """
     a^b           ?         c^d            ?   e^f
@@ -67,6 +70,7 @@ def load_base_exp(base_exp):
 
 base_exp = load_base_exp(handle_filepath("inputfiles/99_base_exp.txt"))
 
+
 def filtering(base_exp):
     for be in base_exp:
         for be2 in base_exp:
@@ -75,13 +79,15 @@ def filtering(base_exp):
                 base_exp.remove(be2)
     return base_exp
 
+
 def decreasing_exp_until_smaller(pair_of_be):
     be1_base, be1_exp = pair_of_be[0]
     be2_base, be2_exp = pair_of_be[1]
     # we expect be2_exp > be1_exp
     tolerance = 0.012
     count = 0
-    while( abs((be1_exp / be2_exp) - 1) > tolerance):  # they should be close to even:
+    # they should be close to even:
+    while (abs((be1_exp / be2_exp) - 1) > tolerance):
         count += 1
         print('iter: ', count, be1_exp, be2_exp)
         if be1_exp > be2_exp:
@@ -95,13 +101,14 @@ def decreasing_exp_until_smaller(pair_of_be):
         return pair_of_be[1]
     if be1_base > be2_base:
         print(pair_of_be[0], ' > ', pair_of_be[1])
-        return pair_of_be[0]    
+        return pair_of_be[0]
     else:
         return None
 
-def decreasing_exponent(ab, cd):
-    a,b = ab
-    c,d = cd
+
+def decreasing_exponent(ab: list[int], cd: list[int]) -> bool:
+    a, b = ab
+    c, d = cd
     if a > c:
         a /= c
     else:
@@ -115,19 +122,19 @@ def decreasing_exponent(ab, cd):
     if abs(a / c - 1) < tolerance:
         print(f'final! {a, b} > {c, d}')
         try:
-            return pow(a,b) > pow(c,d)
+            return pow(a, b) > pow(c, d)
         except OverflowError:
             return b > d
     if abs(b / d - 1) < tolerance:
         print(f'final! {a, b} > {c, d} = {a > c}')
         try:
-            return pow(a,b) > pow(c,d)
+            return pow(a, b) > pow(c, d)
         except OverflowError:
             return a > c
-    return decreasing_exponent([a,b], [c,d])
-    
+    return decreasing_exponent([a, b], [c, d])
 
-def exp(pair_of_be):
+
+def exp(pair_of_be: list[int]) -> int:
     be1_base, be1_exp = pair_of_be[0]
     be2_base, be2_exp = pair_of_be[1]
 
@@ -139,19 +146,19 @@ def exp(pair_of_be):
     res1 = pow(temp1_base, temp1_exp)
     res2 = pow(temp2_base, temp2_exp)
     if res1 > res2:
-        print(pair_of_be[0], ' > ', pair_of_be[1] )
+        print(pair_of_be[0], ' > ', pair_of_be[1])
         max_ = pair_of_be[0]
     else:
-        print(pair_of_be[0], ' < ', pair_of_be[1] )
+        print(pair_of_be[0], ' < ', pair_of_be[1])
         max_ = pair_of_be[1]
-    
+
     return max_
 
 
-def calc99(base_exp):
+def calc99(base_exp: list[list[int]]) -> int:
     max_ = base_exp[-1]
-    max_place = None
-    for count,current in enumerate(reversed(base_exp)): 
+
+    for count, current in enumerate(reversed(base_exp)):
         if count == 0:
             continue
         left = decreasing_exponent(max_, current)
@@ -161,16 +168,7 @@ def calc99(base_exp):
     print(base_exp.index(max_) + 1)
     return max_
 
-# newbase = filtering(base_exp)
 
-print(timer_wrapper(calc99, base_exp))
-
-# print([newbase[0], newbase[1]])
-# print(decreasing_exponent(newbase[0], newbase[1]))
-# timer_wrapper(exp, [newbase[0],newbase[1]] )
-# print(len(timer_wrapper(filtering, base_exp)))
-
-"""
-maxval = timer_wrapper(calc99, newbase)
-print('Result: ', base_exp.index(maxval))
-"""
+if __name__ == '__main__':
+    result = timer_wrapper(calc99, [base_exp])
+    print(f"{result = }")
