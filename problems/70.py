@@ -1,87 +1,56 @@
-# Totient maximum
-from math import sqrt
-from math import gcd as bltin_gcd
-import time
-from collections import Counter
+""" Totient permutation
+Euler's Totient function, φ(n) [sometimes called the phi function], 
+is used to determine the number of positive numbers less than or equal 
+to n which are relatively prime to n. For example, as 1, 2, 4, 5, 7, 
+and 8, are all less than nine and relatively prime to nine, φ(9)=6.
+The number 1 is considered to be relatively prime to every positive 
+number, so φ(1)=1.
 
-def compare_permutation(arg1, arg2):
+Interestingly, φ(87109)=79180, and it can be seen that 87109 is a 
+permutation of 79180.
+
+Find the value of n, 1 < n < 107, for which φ(n) is a permutation of n 
+and the ratio n/φ(n) produces a minimum.
+"""
+
+from collections import Counter
+from function_collection.main import proper_divisors_fast
+from function_collection.main import unique_prime_divisors
+from function_collection.main import timer_wrapper
+
+
+def compare_permutation(arg1: int, arg2: int) -> bool:
     return Counter(str(arg1)) == Counter(str(arg2))
 
-def is_prime(x):
-    if x <= 1:
-        return False
-    check = 0
-    for i in range(2, int(sqrt(x) + 1)):
-        if x % i == 0:
-            check += 1
-            if check > 0:
-                return False
-    return True
 
-def generate_primes(x):
-    pr = [i for i in range(1,x) if is_prime(i)]
-    return pr
+def phi(n: int) -> int:
+    return n - sum([(int(n/i) - 1) for i in unique_prime_divisors(n)]) - 1
 
-def phi(n:int):
-    divs = unique_prime_divisors(n)
-    phires = n
 
-    for i in divs:
-        phires -= (int(n/i) - 1)  # -1 because n not counted in phi
-    return phires - 1  # -1 because n not counted in phi
+def calc70() -> int:
+    n = 10000000
+    min_ = 1000
 
-    # old solution, was too slow
-    # phi = [i for i in range(1,n) if (bltin_gcd(n, i) == 1)]
-    # return len(phi)
-
-def unique_prime_divisors(x, primes=[]):
-    if primes:
-        temp = primes
-    else:
-        temp = []
-
-    if is_prime(x):
-        temp.append(x)
-        return set(temp)
-    for i in range(2, int(x/2) + 1):
-        if x % i == 0:
-            temp.append(i)
-            return unique_prime_divisors(int(x / i), temp)
-
-def proper_divisors(x:int):
-    divlist = [i for i in range(2, int(x/2 + 1)) if x % i == 0]
-    res = divlist
-    for div in divlist:
-        if not is_prime(div):
-            for j in proper_divisors(div):
-                if j not in res:
-                    res.append(j)
-    return res
-
-start_time = time.time()
-
-n = 10000000
-min = 1000
-for i in range(2, n):
-    print(i)
-    f = phi(i)
-    if compare_permutation(i, f):
-        if float(i / f) < min:
-            min = float(i / f)
+    for i in range(2, n):
+        f = phi(i)
+        if compare_permutation(i, f) and float(i / f) < min_:
+            min_ = float(i / f)
             place = i
-            print(f"{place}: {min}")
-print(f"Winner: {place}: {min}")
+    return place
 
-"""
-tests
-print(proper_divisors(125))
-print(proper_divisors(625))
-print('125 ' , prime_div(125))
-print('25 ', prime_div(25))
-print('5 ', prime_div(5))
 
-print(phi(9))
-print(phi(87109))
-"""
+if __name__ == '__main__':
+    testing = True
 
-print(time.time() - start_time)
+    if testing:
+        print(f"{proper_divisors_fast(125) = }")
+        print(f"{proper_divisors_fast(625) = }")
+        print(f"125: {unique_prime_divisors(125) = }")
+        print(f"25: {unique_prime_divisors(25) = }")
+        print(f"5: {unique_prime_divisors(5) = }")
+
+        print(f"{phi(9) = }")
+        print(f"{phi(87109) = }")
+    else:
+        result = timer_wrapper(calc70)  # ~100 sec
+        print(f"{result = }")
