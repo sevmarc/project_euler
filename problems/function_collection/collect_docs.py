@@ -39,7 +39,7 @@ if __name__ == '__main__':
 
     res = parse_files(filelist)
 
-    output_file = 'docs.txt'
+    output_file = '../docs.txt'
     with open(output_file, 'w') as out:
         out.write('')  # we create an empty file (or clean it, if it already exists)
 

@@ -18,6 +18,13 @@ By considering the terms in the Fibonacci sequence whose values do
 not exceed four million, find the sum of the even-valued terms.
 
 ====================================================
+03.py: Largest prime factor
+
+
+The prime factors of 13195 are 5, 7, 13 and 29.
+What is the largest prime factor of the number 600851475143 ?
+
+====================================================
 04.py: Largest palindrome product
 
 A palindromic number reads the same both ways. The largest palindrome 
@@ -59,7 +66,7 @@ What is the 10001st prime number?
 08.py: Largest product in a series
 
 The four adjacent digits in the 1000-digit number that have 
-the greatest product are 9 × 9 × 8 × 9 = 5832.
+the greatest product are 9 x 9 x 8 x 9 = 5832.
 
 Find the thirteen adjacent digits in the 1000-digit number that 
 have the greatest product. What is the value of this product?
@@ -85,49 +92,16 @@ The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 Find the sum of all the primes below two million.
 
 ====================================================
-102.py: 
-
-Three distinct points are plotted at random on a Cartesian plane, for which -1000 ≤ x, y ≤ 1000, such that a triangle is formed.
-
-Consider the following two triangles:
-
-A(-340,495), B(-153,-910), C(835,-947)
-X(-175,41), Y(-421,-714), Z(574,-645)
-
-It can be verified that triangle ABC contains the origin, whereas triangle XYZ does not.
-
-Using triangles.txt (right click and 'Save Link/Target As...'), a 27K text file containing the co-ordinates 
-of one thousand "random" triangles, find the number of triangles for which the interior contains the origin.
-
-NOTE: The first two examples in the file represent the triangles in the example given above.
-
-====================================================
 11.py: Largest product in a grid
 
-In the 20×20 grid below, four numbers along a 
+In the 20x20 grid below, four numbers along a 
 diagonal line have been marked in red.
 
-The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
+The product of these numbers is 26 x 63 x 78 x 14 = 1788696.
 
 What is the greatest product of four adjacent 
 numbers in the same direction (up, down, left, 
-right, or diagonally) in the 20×20 grid?
-
-====================================================
-112.py: 
-
-Working from left-to-right if no digit is exceeded by the digit to its left it is called an increasing number; for example, 134468.
-
-Similarly if no digit is exceeded by the digit to its right it is called a decreasing number; for example, 66420.
-
-We shall call a positive integer that is neither increasing nor decreasing a "bouncy" number; for example, 155349.
-
-Clearly there cannot be any bouncy numbers below one-hundred, but just over half of the numbers below one-thousand (525) are bouncy. 
-In fact, the least number for which the proportion of bouncy numbers first reaches 50% is 538.
-
-Surprisingly, bouncy numbers become more and more common and by the time we reach 21780 the proportion of bouncy numbers is equal to 90%.
-
-Find the least number for which the proportion of bouncy numbers is exactly 99%.
+right, or diagonally) in the 20x20 grid?
 
 ====================================================
 12.py: Highly divisible triangular number
@@ -152,34 +126,6 @@ over five divisors.
 
 What is the value of the first triangle number to have 
 over five hundred divisors?
-
-====================================================
-124.py: Ordered radicals
-
-
-The radical of n, rad(n), is the product of the distinct prime factors of n. 
-For example, 504 = 23 × 32 × 7, so rad(504) = 2 × 3 × 7 = 42.
-
-If we calculate rad(n) for 1 ≤ n ≤ 10, then sort them on rad(n), and sorting
- on n if the radical values are equal, we get:
-
-Let E(k) be the kth element in the sorted n column; for example, E(4) = 8 and E(6) = 9.
-
-If rad(n) is sorted for 1 ≤ n ≤ 100000, find E(10000).
-
-====================================================
-125.py: 
-
-The palindromic number 595 is interesting because it can be written as 
-the sum of consecutive squares: 62 + 72 + 82 + 92 + 102 + 112 + 122.
-
-There are exactly eleven palindromes below one-thousand that can be written 
-as consecutive square sums, and the sum of these palindromes is 4164. 
-Note that 1 = 02 + 12 has not been included as this problem is concerned 
-with the squares of positive integers.
-
-Find the sum of all the numbers less than 10^8 that are both palindromic 
-and can be written as the sum of consecutive squares.
 
 ====================================================
 13.py: Large sum
@@ -214,11 +160,11 @@ allowed to go above one million.
 ====================================================
 15.py: Lattice paths
 
-Starting in the top left corner of a 2×2 grid, and only being 
+Starting in the top left corner of a 2x2 grid, and only being 
 able to move to the right and down, there are exactly 6 routes 
 to the bottom right corner.
 
-How many such routes are there through a 20×20 grid?
+How many such routes are there through a 20x20 grid?
 
 ====================================================
 16.py: Power digit sum
@@ -293,10 +239,457 @@ How many Sundays fell on the first of the month during the
 twentieth century (1 Jan 1901 to 31 Dec 2000)?
 
 ====================================================
-26.py: 
+20.py: Factorial digit sum
+
+n! means n x (n - 1) x ... x 3 x 2 x 1
+
+For example, 10! = 10 x 9 x ... x 3 x 2 x 1 = 3628800,
+and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.
+
+Find the sum of the digits in the number 100!
+
+====================================================
+21.py: Amicable numbers
+
+Let d(n) be defined as the sum of proper divisors of n 
+(numbers less than n which divide evenly into n).
+If d(a) = b and d(b) = a, where a ≠ b, then a and b are 
+an amicable pair and each of a and b are called amicable numbers.
+
+For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 
+11, 20, 22, 44, 55 and 110; therefore d(220) = 284. The proper 
+divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.
+
+Evaluate the sum of all the amicable numbers under 10000.
+
+====================================================
+22.py: Names scores
+
+Using names.txt (right click and 'Save Link/Target As...'), 
+a 46K text file containing over five-thousand first names, 
+begin by sorting it into alphabetical order. Then working out 
+the alphabetical value for each name, multiply this value by 
+its alphabetical position in the list to obtain a name score.
+
+For example, when the list is sorted into alphabetical order, 
+COLIN, which is worth 3 + 15 + 12 + 9 + 14 = 53, is the 938th 
+name in the list. So, COLIN would obtain a score of 938 x 53 = 49714.
+
+What is the total of all the name scores in the file?
+
+====================================================
+23.py: Non-abundant sums
+
+A perfect number is a number for which the sum of its proper 
+divisors is exactly equal to the number. For example, the sum 
+of the proper divisors of 28 would be 1 + 2 + 4 + 7 + 14 = 28, 
+which means that 28 is a perfect number.
+
+A number n is called deficient if the sum of its proper divisors 
+is less than n and it is called abundant if this sum exceeds n.
+
+As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, 
+the smallest number that can be written as the sum of two abundant 
+numbers is 24. By mathematical analysis, it can be shown that all 
+integers greater than 28123 can be written as the sum of two abundant 
+numbers. However, this upper limit cannot be reduced any further 
+by analysis even though it is known that the greatest number that 
+cannot be expressed as the sum of two abundant numbers is less than this limit.
+
+Find the sum of all the positive integers which cannot be written 
+as the sum of two abundant numbers.
+
+====================================================
+24.py: Lexicographic permutations
+
+A permutation is an ordered arrangement of objects. For example, 
+3124 is one possible permutation of the digits 1, 2, 3 and 4. 
+If all of the permutations are listed numerically or alphabetically, 
+we call it lexicographic order. The lexicographic permutations of 0, 1 and 2 are:
+
+012   021   102   120   201   210
+
+What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
+
+====================================================
+25.py: 1000-digit Fibonacci-number
+
+The Fibonacci sequence is defined by the recurrence relation:
+
+Fn = Fn-1 + Fn-2, where F1 = 1 and F2 = 1.
+Hence the first 12 terms will be:
+
+F1 = 1
+F2 = 1
+F3 = 2
+F4 = 3
+F5 = 5
+F6 = 8
+F7 = 13
+F8 = 21
+F9 = 34
+F10 = 55
+F11 = 89
+F12 = 144
+The 12th term, F12, is the first term to contain three digits.
+
+What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
+
+====================================================
+26.py: Reciprocal cycles
+
+A unit fraction contains 1 in the numerator. The decimal representation 
+of the unit fractions with denominators 2 to 10 are given:
+
+1/2	= 	0.5
+1/3	= 	0.(3)
+1/4	= 	0.25
+1/5	= 	0.2
+1/6	= 	0.1(6)
+1/7	= 	0.(142857)
+1/8	= 	0.125
+1/9	= 	0.(1)
+1/10	= 	0.1
+Where 0.1(6) means 0.166666..., and has a 1-digit recurring cycle. 
+It can be seen that 1/7 has a 6-digit recurring cycle.
+
+Find the value of d < 1000 for which 1/d contains the longest recurring 
+cycle in its decimal fraction part.
+
 
 https://oeis.org/A051626
 https://oeis.org/A051626/b051626.txt
+
+====================================================
+27.py: Quadratic primes
+
+https://projecteuler.net/problem=27
+
+====================================================
+28.py: Number spiral diagonals
+
+Starting with the number 1 and moving to the right in a clockwise 
+direction a 5 by 5 spiral is formed as follows:
+
+21 22 23 24 25
+20  7  8  9 10
+19  6  1  2 11
+18  5  4  3 12
+17 16 15 14 13
+
+It can be verified that the sum of the numbers on the diagonals is 101.
+
+What is the sum of the numbers on the diagonals in a 1001 by 1001 
+spiral formed in the same way?
+
+====================================================
+29.py: Distinct powers
+
+Consider all integer combinations of ab for 2 ≤ a ≤ 5 and 2 ≤ b ≤ 5:
+
+22=4, 23=8, 24=16, 25=32
+32=9, 33=27, 34=81, 35=243
+42=16, 43=64, 44=256, 45=1024
+52=25, 53=125, 54=625, 55=3125
+
+If they are then placed in numerical order, with any repeats removed, 
+we get the following sequence of 15 distinct terms:
+
+4, 8, 9, 16, 25, 27, 32, 64, 81, 125, 243, 256, 625, 1024, 3125
+
+How many distinct terms are in the sequence generated by ab for 2 ≤ a ≤ 100 and 2 ≤ b ≤ 100?
+
+====================================================
+30.py: Digit fifth powers
+
+Surprisingly there are only three numbers that can be written 
+as the sum of fourth powers of their digits:
+
+1634 = 14 + 64 + 34 + 44
+8208 = 84 + 24 + 04 + 84
+9474 = 94 + 44 + 74 + 44
+As 1 = 14 is not a sum it is not included.
+
+The sum of these numbers is 1634 + 8208 + 9474 = 19316.
+
+Find the sum of all the numbers that can be written as the 
+sum of fifth powers of their digits.
+
+====================================================
+31.py: Coin sums
+
+In the United Kingdom the currency is made up of pound (£) and pence (p).
+There are eight coins in general circulation:
+
+1p, 2p, 5p, 10p, 20p, 50p, £1 (100p), and £2 (200p).
+It is possible to make £2 in the following way:
+
+1x£1 + 1x50p + 2x20p + 1x5p + 1x2p + 3x1p
+How many different ways can £2 be made using any number of coins?
+
+====================================================
+32.py: Pandigital products
+
+We shall say that an n-digit number is pandigital if it makes 
+use of all the digits 1 to n exactly once; for example, the 5-digit 
+number, 15234, is 1 through 5 pandigital.
+
+The product 7254 is unusual, as the identity, 39 x 186 = 7254, 
+containing multiplicand, multiplier, and product is 1 through 9 pandigital.
+
+Find the sum of all products whose multiplicand/multiplier/product 
+identity can be written as a 1 through 9 pandigital.
+
+HINT: Some products can be obtained in more than one way so be sure 
+to only include it once in your sum.
+
+====================================================
+33.py: Digit cancelling fractions
+
+The fraction 49/98 is a curious fraction, as an inexperienced 
+mathematician in attempting to simplify it may incorrectly believe 
+that 49/98 = 4/8, which is correct, is obtained by cancelling the 9s.
+
+We shall consider fractions like, 30/50 = 3/5, to be trivial examples.
+
+There are exactly four non-trivial examples of this type of fraction, 
+less than one in value, and containing two digits in the numerator and denominator.
+
+If the product of these four fractions is given in its lowest common 
+terms, find the value of the denominator.
+
+====================================================
+34.py: Digit factorials
+
+145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.
+
+Find the sum of all numbers which are equal to the sum of the factorial of their digits.
+
+Note: As 1! = 1 and 2! = 2 are not sums they are not included.
+
+====================================================
+35.py: Circular primes
+
+The number, 197, is called a circular prime because all 
+rotations of the digits: 197, 971, and 719, are themselves prime.
+
+There are thirteen such primes below 100: 
+2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
+
+How many circular primes are there below one million?
+
+====================================================
+36.py: Double-base palindromes
+
+The decimal number, 585 = 10010010012 (binary), 
+is palindromic in both bases.
+
+Find the sum of all numbers, less than one million, 
+which are palindromic in base 10 and base 2.
+
+(Please note that the palindromic number, 
+in either base, may not include leading zeros.)
+
+====================================================
+37.py: Truncatable primes
+
+The number 3797 has an interesting property. Being prime 
+itself, it is possible to continuously remove digits from left 
+to right, and remain prime at each stage: 3797, 797, 97, and 7. 
+Similarly we can work from right to left: 3797, 379, 37, and 3.
+
+Find the sum of the only eleven primes that are both truncatable 
+from left to right and right to left.
+
+NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
+
+====================================================
+38.py: Pandigital multiples
+
+Take the number 192 and multiply it by each of 1, 2, and 3:
+
+192 x 1 = 192
+192 x 2 = 384
+192 x 3 = 576
+By concatenating each product we get the 1 to 9 pandigital,
+192384576. We will call 192384576 the concatenated product 
+of 192 and (1,2,3)
+
+The same can be achieved by starting with 9 and multiplying 
+by 1, 2, 3, 4, and 5, giving the pandigital, 918273645, 
+which is the concatenated product of 9 and (1,2,3,4,5).
+
+What is the largest 1 to 9 pandigital 9-digit number that 
+can be formed as the concatenated product of an integer 
+with (1,2, ... , n) where n > 1?
+
+====================================================
+39.py: Integer right triangles
+
+If p is the perimeter of a right angle triangle with 
+integral length sides, {a,b,c}, there are exactly 
+three solutions for p = 120.
+
+{20,48,52}, {24,45,51}, {30,40,50}
+
+For which value of p ≤ 1000, is the number of solutions maximised?
+
+====================================================
+40.py: Champernowne's constant
+
+An irrational decimal fraction is created by 
+concatenating the positive integers:
+
+0.123456789101112131415161718192021...
+
+It can be seen that the 12th digit of the fractional part is 1.
+
+If dn represents the nth digit of the fractional part, 
+find the value of the following expression.
+
+d1 x d10 x d100 x d1000 x d10000 x d100000 x d1000000
+
+====================================================
+41.py: Pandigital prime
+
+We shall say that an n-digit number is pandigital if it 
+makes use of all the digits 1 to n exactly once. 
+For example, 2143 is a 4-digit pandigital and is also prime.
+
+What is the largest n-digit pandigital prime that exists?
+
+====================================================
+43.py: Sub-string divisibility
+
+The number, 1406357289, is a 0 to 9 pandigital number because 
+it is made up of each of the digits 0 to 9 in some order, but 
+it also has a rather interesting sub-string divisibility property.
+
+Let d1 be the 1st digit, d2 be the 2nd digit, and so on. 
+In this way, we note the following:
+
+d2d3d4=406 is divisible by 2
+d3d4d5=063 is divisible by 3
+d4d5d6=635 is divisible by 5
+d5d6d7=357 is divisible by 7
+d6d7d8=572 is divisible by 11
+d7d8d9=728 is divisible by 13
+d8d9d10=289 is divisible by 17
+Find the sum of all 0 to 9 pandigital numbers with this property.
+
+====================================================
+44.py: Pentagon numbers
+
+Pentagonal numbers are generated by the formula, 
+Pn=n(3n-1)/2. The first ten pentagonal numbers are:
+
+1, 5, 12, 22, 35, 51, 70, 92, 117, 145, ...
+
+It can be seen that P4 + P7 = 22 + 70 = 92 = P8. 
+However, their difference, 70 - 22 = 48, is not pentagonal.
+
+Find the pair of pentagonal numbers, Pj and Pk, for which 
+their sum and difference are pentagonal and D = |Pk - Pj|
+is minimised; what is the value of D?
+
+====================================================
+45.py: Triangular, pentagonal, and hexagonal
+
+Triangle, pentagonal, and hexagonal numbers are generated 
+by the following formulae:
+
+Triangle	 	Tn=n(n+1)/2	 	1, 3, 6, 10, 15, ...
+Pentagonal	 	Pn=n(3n-1)/2	 	1, 5, 12, 22, 35, ...
+Hexagonal	 	Hn=n(2n-1)	 	1, 6, 15, 28, 45, ...
+It can be verified that T285 = P165 = H143 = 40755.
+
+Find the next triangle number that is also pentagonal and hexagonal.
+
+====================================================
+46.py: Goldbach's other conjecture
+
+It was proposed by Christian Goldbach that every odd 
+composite number can be written as the sum of a prime 
+and twice a square.
+
+9 = 7 + 2x12
+15 = 7 + 2x22
+21 = 3 + 2x32
+25 = 7 + 2x32
+27 = 19 + 2x22
+33 = 31 + 2x12
+
+It turns out that the conjecture was false.
+
+What is the smallest odd composite that cannot be 
+written as the sum of a prime and twice a square?
+
+====================================================
+47.py: Distinct primes factors
+
+The first two consecutive numbers to have two distinct 
+prime factors are:
+
+14 = 2 x 7
+15 = 3 x 5
+
+The first three consecutive numbers to have three distinct 
+prime factors are:
+
+644 = 2² x 7 x 23
+645 = 3 x 5 x 43
+646 = 2 x 17 x 19.
+
+Find the first four consecutive integers to have four distinct 
+prime factors each. What is the first of these numbers?
+
+====================================================
+48.py: Self powers
+
+The series, 1^1 + 2^2 + 3^3 + ... + 10^10 = 10405071317.
+
+Find the last ten digits of the series, 1^1 + 2^2 + 3^3 + ... + 1000^1000.
+
+====================================================
+49.py: Prime permutations
+
+The arithmetic sequence, 1487, 4817, 8147, in which each of the terms 
+increases by 3330, is unusual in two ways: (i) each of the three terms 
+are prime, and, (ii) each of the 4-digit numbers are permutations of one another.
+
+There are no arithmetic sequences made up of three 1-, 2-, or 3-digit primes, 
+exhibiting this property, but there is one other 4-digit increasing sequence.
+
+What 12-digit number do you form by concatenating the three terms in this sequence?
+
+====================================================
+50.py: Consecutive prime sum
+
+The prime 41, can be written as the sum of six consecutive primes:
+
+41 = 2 + 3 + 5 + 7 + 11 + 13
+This is the longest sum of consecutive primes that adds to a prime 
+below one-hundred.
+
+The longest sum of consecutive primes below one-thousand that adds 
+to a prime, contains 21 terms, and is equal to 953.
+
+Which prime, below one-million, can be written as the sum of the 
+most consecutive primes?
+
+====================================================
+52.py: Permuted multiples
+
+It can be seen that the number, 125874, and its double, 251748, 
+contain exactly the same digits, but in a different order.
+
+Find the smallest positive integer, x, such that 2x, 3x, 4x, 
+5x, and 6x, contain the same digits.
+
+====================================================
+53.py: Combinatoric selections
+
+https://projecteuler.net/problem=53
 
 ====================================================
 54.py: Poker hands
@@ -350,30 +743,218 @@ each player's hand is in no specific order, and in each hand there is a clear wi
 How many hands does Player 1 win?
 
 ====================================================
-66.py: 
+55.py: Lychrel numbers
 
-Consider quadratic Diophantine equations of the form:
+If we take 47, reverse and add, 47 + 74 = 121, which is 
+palindromic.
 
-x^2 – Dy^2 = 1
+Not all numbers produce palindromes so quickly. For example,
 
-For example, when D=13, the minimal solution in x is 6492 – 13×1802 = 1.
+349 + 943 = 1292,
+1292 + 2921 = 4213
+4213 + 3124 = 7337
 
-It can be assumed that there are no solutions in positive integers when D is square.
+That is, 349 took three iterations to arrive at a palindrome.
 
-By finding minimal solutions in x for D = {2, 3, 5, 6, 7}, we obtain the following:
+Although no one has proved it yet, it is thought that some 
+numbers, like 196, never produce a palindrome. A number that 
+never forms a palindrome through the reverse and add process 
+is called a Lychrel number. Due to the theoretical nature of 
+these numbers, and for the purpose of this problem, we shall 
+assume that a number is Lychrel until proven otherwise. In 
+addition you are given that for every number below 
+ten-thousand, it will either (i) become a palindrome in less 
+than fifty iterations, or, (ii) no one, with all the computing 
+power that exists, has managed so far to map it to a 
+palindrome. In fact, 10677 is the first number to be shown to 
+require over fifty iterations before producing a palindrome: 
+4668731596684224866951378664 (53 iterations, 28-digits).
 
-3^2 – 2 × 2^2 = 1
-2^2 – 3 × 1^2 = 1
-9^2 – 5 × 4^2 = 1
-5^2 – 6 × 2^2 = 1
-8^2 – 7 × 3^2 = 1
+Surprisingly, there are palindromic numbers that are 
+themselves Lychrel numbers; the first example is 4994.
 
-Hence, by considering minimal solutions in x for D ≤ 7, the largest x is obtained when D=5.
+How many Lychrel numbers are there below ten-thousand?
 
-Find the value of D ≤ 1000 in minimal solutions of x for which the largest value of x is obtained.
+NOTE: Wording was modified slightly on 24 April 2007 to 
+emphasise the theoretical nature of Lychrel numbers.
 
 ====================================================
-71.py: 
+56.py: Powerful digit sum
+
+A googol (10^100) is a massive number: one followed by 
+one-hundred zeros; 100^100 is almost unimaginably large: one 
+followed by two-hundred zeros. Despite their size, the sum of 
+the digits in each number is only 1.
+
+Considering natural numbers of the form, a^b, where a, b < 100, 
+what is the maximum digital sum?
+
+====================================================
+57.py: Square root convergents
+
+
+expansions:
+3   /   2       1+  1/2
+7   /   5           2/5
+17  /   12          5/12
+41  /   29          12/29
+99  /   70          29/70
+239 /   169         70/169
+577 /   408         169/408
+1393/   985         408/985
+
+====================================================
+58.py: Spiral primes
+
+Starting with 1 and spiralling anticlockwise in the following 
+way, a square spiral with side length 7 is formed.
+
+37 36 35 34 33 32 31
+38 17 16 15 14 13 30
+39 18  5  4  3 12 29
+40 19  6  1  2 11 28
+41 20  7  8  9 10 27
+42 21 22 23 24 25 26
+43 44 45 46 47 48 49
+
+It is interesting to note that the odd squares lie along the 
+bottom right diagonal, but what is more interesting is that 8 out 
+of the 13 numbers lying along both diagonals are prime; that is, 
+a ratio of 8/13 ≈ 62%.
+
+If one complete new layer is wrapped around the spiral above, a 
+square spiral with side length 9 will be formed. If this process 
+is continued, what is the side length of the square spiral for 
+which the ratio of primes along both diagonals first falls below 
+10%?
+
+====================================================
+59.py: XOR decryption
+
+Each character on a computer is assigned a unique code and the 
+preferred standard is ASCII (American Standard Code for Information 
+Interchange). For example, uppercase A = 65, asterisk (*) = 42, and 
+lowercase k = 107.
+
+A modern encryption method is to take a text file, convert the bytes to 
+ASCII, then XOR each byte with a given value, taken from a secret key. 
+The advantage with the XOR function is that using the same encryption 
+key on the cipher text, restores the plain text; for example, 65 XOR 42 
+= 107, then 107 XOR 42 = 65.
+
+For unbreakable encryption, the key is the same length as the plain 
+text message, and the key is made up of random bytes. The user would 
+keep the encrypted message and the encryption key in different 
+locations, and without both "halves", it is impossible to decrypt the 
+message.
+
+Unfortunately, this method is impractical for most users, so the 
+modified method is to use a password as a key. If the password is 
+shorter than the message, which is likely, the key is repeated 
+cyclically throughout the message. The balance for this method is using 
+a sufficiently long password key for security, but short enough to be 
+memorable.
+
+Your task has been made easy, as the encryption key consists of three 
+lower case characters. Using p059_cipher.txt (right click and 'Save 
+Link/Target As...'), a file containing the encrypted ASCII codes, and 
+the knowledge that the plain text must contain common English words, 
+decrypt the message and find the sum of the ASCII values in the 
+original text.
+
+====================================================
+60.py: Prime pair sets
+
+The primes 3, 7, 109, and 673, are quite remarkable. By taking 
+any two primes and concatenating them in any order the result 
+will always be prime. For example, taking 7 and 109, both 7109 
+and 1097 are prime. The sum of these four primes, 792, represents 
+the lowest sum for a set of four primes with this property.
+
+Find the lowest sum for a set of five primes for which any two 
+primes concatenate to produce another prime.
+
+====================================================
+62.py: 
+
+The cube, 41063625 (345^3), can be permuted to produce two other cubes: 
+56623104 (384^3) and 66430125 (405^3). In fact, 41063625 is the smallest 
+cube which has exactly three permutations of its digits which are also 
+cube.
+
+Find the smallest cube for which exactly five permutations of its 
+digits are cube.
+
+====================================================
+63.py: Powerful digit counts
+
+The 5-digit number, 16807=75, is also a fifth power. 
+Similarly, the 9-digit number, 134217728=89, is a ninth power.
+
+How many n-digit positive integers exist which are also an nth power?
+
+====================================================
+67.py: Maximum path sum I
+
+By starting at the top of the triangle below and moving to adjacent  numbers on the row below, the maximum total from top to bottom is 23.
+
+3
+7 4
+2 4 6
+8 5 9 3
+
+That is, 3 + 7 + 4 + 9 = 23.
+
+Find the maximum total from top to bottom in triangle.txt (right click
+and 'Save Link/Target As...'), a 15K text file containing a triangle 
+with one-hundred rows.
+
+NOTE: This is a much more difficult version of Problem 18. It is not 
+possible to try every route to solve this problem, as there are 299 
+altogether! If you could check one trillion (1012) routes every second 
+it would take over twenty billion years to check them all. There is an 
+efficient algorithm to solve it. ;o)
+
+====================================================
+69.py: Totient maximum
+
+Euler's Totient function, φ(n) [sometimes called the phi function], 
+is used to determine the number of numbers less than n which are 
+relatively prime to n. For example, as 1, 2, 4, 5, 7, and 8, are all 
+less than nine and relatively prime to nine, φ(9)=6.
+
+n	Relatively Prime	φ(n)	n/φ(n)
+2	1	                1      	2
+3	1,2	                2	    1.5
+4	1,3	                2	    2
+5	1,2,3,4	            4   	1.25
+6	1,5	                2   	3
+7	1,2,3,4,5,6	        6   	1.1666...
+8	1,3,5,7	            4    	2
+9	1,2,4,5,7,8	        6   	1.5
+10	1,3,7,9	            4   	2.5
+It can be seen that n=6 produces a maximum n/φ(n) for n ≤ 10.
+
+Find the value of n ≤ 1,000,000 for which n/φ(n) is a maximum.
+
+====================================================
+70.py: Totient permutation
+
+Euler's Totient function, φ(n) [sometimes called the phi function], 
+is used to determine the number of positive numbers less than or equal 
+to n which are relatively prime to n. For example, as 1, 2, 4, 5, 7, 
+and 8, are all less than nine and relatively prime to nine, φ(9)=6.
+The number 1 is considered to be relatively prime to every positive 
+number, so φ(1)=1.
+
+Interestingly, φ(87109)=79180, and it can be seen that 87109 is a 
+permutation of 79180.
+
+Find the value of n, 1 < n < 107, for which φ(n) is a permutation of n 
+and the ratio n/φ(n) produces a minimum.
+
+====================================================
+71.py: Ordered fractions
 
 Consider the fraction, n/d, where n and d are positive integers. If n<d and HCF(n,d)=1, it is called a reduced proper fraction.
 
@@ -428,9 +1009,337 @@ a starting number below one million is sixty terms.
 How many chains, with a starting number below one million, contain exactly sixty non-repeating terms?
 
 ====================================================
-75.py: 
+77.py: 
 
-It turns out that 12 cm is the smallest length of wire that can be bent to form an integer sided right angle triangle in exactly one way, but there are many more examples.
+It is possible to write ten as the sum of primes in exactly five different ways:
+
+7 + 3
+5 + 5
+5 + 3 + 2
+3 + 3 + 2 + 2
+2 + 2 + 2 + 2 + 2
+
+What is the first value which can be written as the sum of primes in over five thousand different ways?
+
+====================================================
+78.py: Coin partitions
+
+Let p(n) represent the number of different ways in which n coins can be separated into piles. For example, five coins can be separated into piles in exactly seven different ways, so p(5)=7.
+
+OOOOO
+OOOO   O
+OOO   OO
+OOO   O   O
+OO   OO   O
+OO   O   O   O
+O   O   O   O   O
+
+Find the least value of n for which p(n) is divisible by one million.
+
+====================================================
+79.py: Passcode derivation
+
+A common security method used for online banking is to 
+ask the user for three random characters from a passcode. 
+For example, if the passcode was 531278, they may ask for 
+the 2nd, 3rd, and 5th characters; the expected reply would be: 317.
+
+The text file, keylog.txt, contains fifty successful login attempts.
+
+Given that the three characters are always asked for in 
+order, analyse the file so as to determine the shortest 
+possible secret passcode of unknown length.
+
+====================================================
+85.py: Counting rectangles
+
+By counting carefully it can be seen that a rectangular grid measuring 3 
+by 2 contains eighteen rectangles:
+
+Although there exists no rectangular grid that contains exactly two million 
+rectangles, find the area of the grid with the nearest solution.
+
+====================================================
+89.py: Roman numerals
+
+For a number written in Roman numerals to be considered 
+valid there are basic rules which must be followed. 
+Even though the rules allow some numbers to be expressed 
+in more than one way there is always a "best" way of 
+writing a particular number.
+
+For example, it would appear that there are at least six 
+ways of writing the number sixteen:
+
+IIIIIIIIIIIIIIII
+VIIIIIIIIIII
+VVIIIIII
+XIIIIII
+VVVI
+XVI
+
+However, according to the rules only XIIIIII and XVI are valid, 
+and the last example is considered to be the most efficient, 
+as it uses the least number of numerals.
+
+The 11K text file, roman.txt (right click and 'Save Link/Target 
+As...'), contains one thousand numbers written in valid, but not 
+necessarily minimal, Roman numerals; see About... Roman Numerals for the definitive rules for this problem.
+
+Find the number of characters saved by writing each of these in 
+their minimal form.
+
+Note: You can assume that all the Roman numerals in the file 
+contain no more than four consecutive identical units.
+
+TODO: https://projecteuler.net/about=roman_numerals
+
+====================================================
+92.py: Square digit chain
+
+A number chain is created by continuously adding the square of the 
+digits in a number to form a new number until it has been seen before.
+
+For example,
+
+44 → 32 → 13 → 10 → 1 → 1
+85 → 89 → 145 → 42 → 20 → 4 → 16 → 37 → 58 → 89
+
+Therefore any chain that arrives at 1 or 89 will become stuck in an 
+endless loop. What is most amazing is that EVERY starting number will 
+eventually arrive at 1 or 89.
+
+How many starting numbers below ten million will arrive at 89?
+
+====================================================
+95.py: Amicable chains	
+
+The proper divisors of a number are all the divisors excluding the number itself. For example, the proper divisors of 28 are 1, 2, 4, 7, and 14. As the sum of these divisors is equal to 28, we call it a perfect number.
+
+Interestingly the sum of the proper divisors of 220 is 284 and the sum of the proper divisors of 284 is 220, forming a chain of two numbers. For this reason, 220 and 284 are called an amicable pair.
+
+Perhaps less well known are longer chains. For example, starting with 12496, we form a chain of five numbers:
+
+12496 → 14288 → 15472 → 14536 → 14264 (→ 12496 → ...)
+
+Since this chain returns to its starting point, it is called an amicable chain.
+
+Find the smallest member of the longest amicable chain with no element exceeding one million.
+
+====================================================
+96.py: Sudoku solver
+
+Su Doku (Japanese meaning number place) is the name given to a popular puzzle concept. Its origin is unclear, but credit must be attributed to Leonhard Euler who invented a similar, and much more difficult, puzzle idea called Latin Squares. The objective of Su Doku puzzles, however, is to replace the blanks (or zeros) in a 9 by 9 grid in such that each row, column, and 3 by 3 box contains each of the digits 1 to 9. Below is an example of a typical starting puzzle grid and its solution grid.
+
+p096_1.png     p096_2.png
+A well constructed Su Doku puzzle has a unique solution and can be solved by logic, although it may be necessary to employ "guess and test" methods in order to eliminate options (there is much contested opinion over this). The complexity of the search determines the difficulty of the puzzle; the example above is considered easy because it can be solved by straight forward direct deduction.
+
+The 6K text file, sudoku.txt (right click and 'Save Link/Target As...'), contains fifty different Su Doku puzzles ranging in difficulty, but all with unique solutions (the first puzzle in the file is the example above).
+
+By solving all fifty puzzles find the sum of the 3-digit numbers found in the top left corner of each solution grid; for example, 483 is the 3-digit number found in the top left corner of the solution grid above.
+
+====================================================
+97.py: Large non-Mersenne prime
+
+The first known prime found to exceed one million digits was 
+discovered in 1999, and is a Mersenne prime of the form 2^6972593-1; 
+it contains exactly 2,098,960 digits. Subsequently other Mersenne 
+primes, of the form 2^p-1, have been found which contain more digits.
+
+However, in 2004 there was found a massive non-Mersenne prime which 
+contains 2,357,207 digits: 28433x2^7830457+1.
+
+Find the last ten digits of this prime number.
+
+====================================================
+98.py: Anagramic squares
+
+By replacing each of the letters in the word CARE with 1, 2, 9, and 6 respectively, we form a square number: 1296 = 362. What is remarkable is that, by using the same digital substitutions, the anagram, RACE, also forms a square number: 9216 = 962. We shall call CARE (and RACE) a square anagram word pair and specify further that leading zeroes are not permitted, neither may a different letter have the same digital value as another letter.
+
+Using words.txt (right click and 'Save Link/Target As...'), a 16K text file containing nearly two-thousand common English words, find all the square anagram word pairs (a palindromic word is NOT considered to be an anagram of itself).
+
+What is the largest square number formed by any member of such a pair?
+
+NOTE: All anagrams formed must be contained in the given text file.
+
+====================================================
+102.py: Triangle containment
+
+Three distinct points are plotted at random on a Cartesian plane, 
+for which -1000 ≤ x, y ≤ 1000, such that a triangle is formed.
+
+Consider the following two triangles:
+
+A(-340,495), B(-153,-910), C(835,-947)
+X(-175,41), Y(-421,-714), Z(574,-645)
+
+It can be verified that triangle ABC contains the origin, whereas 
+triangle XYZ does not.
+
+Using triangles.txt (right click and 'Save Link/Target As...'), a 27K 
+text file containing the co-ordinates of one thousand "random" 
+triangles, find the number of triangles for which the interior 
+contains the origin.
+
+NOTE: The first two examples in the file represent the triangles in 
+the example given above.
+
+====================================================
+112.py: Bouncy numbers
+
+Working from left-to-right if no digit is exceeded by the digit to 
+its left it is called an increasing number; for example, 134468.
+
+Similarly if no digit is exceeded by the digit to its right it is 
+called a decreasing number; for example, 66420.
+
+We shall call a positive integer that is neither increasing nor 
+decreasing a "bouncy" number; for example, 155349.
+
+Clearly there cannot be any bouncy numbers below one-hundred, but 
+just over half of the numbers below one-thousand (525) are bouncy. 
+In fact, the least number for which the proportion of bouncy numbers 
+first reaches 50% is 538.
+
+Surprisingly, bouncy numbers become more and more common and by the 
+time we reach 21780 the proportion of bouncy numbers is equal to 90%.
+
+Find the least number for which the proportion of bouncy numbers is 
+exactly 99%.
+
+====================================================
+113.py: Non-bouncy numbers
+
+Working from left-to-right if no digit is exceeded by the digit to its left it is called an increasing number; for example, 134468.
+
+Similarly if no digit is exceeded by the digit to its right it is called a decreasing number; for example, 66420.
+
+We shall call a positive integer that is neither increasing nor decreasing a "bouncy" number; for example, 155349.
+
+As n increases, the proportion of bouncy numbers below n increases such that there are only 12951 numbers below one-million that are not bouncy and only 277032 non-bouncy numbers below 1010.
+
+How many numbers below a googol (10100) are not bouncy?
+
+====================================================
+120.py: Square remainders
+
+Let r be the remainder when (a-1)^n + (a+1)^n is divided by a^2.
+
+For example, if a = 7 and n = 3, then r = 42: 6^3 + 8^3 = 728 ≡ 42 mod 49. And as n varies, so too will r, but for a = 7 it turns out that rmax = 42.
+
+For 3 ≤ a ≤ 1000, find ∑rmax.
+
+====================================================
+121.py: Disc game prize fund
+
+A bag contains one red disc and one blue disc. In a game of chance a player takes a disc at random and its colour is noted. After each turn the disc is returned to the bag, an extra red disc is added, and another disc is taken at random.
+
+The player pays £1 to play and wins if they have taken more blue discs than red discs at the end of the game.
+
+If the game is played for four turns, the probability of a player winning is exactly 11/120, and so the maximum prize fund the banker should allocate for winning in this game would be £10 before they would expect to incur a loss. Note that any payout will be a whole number of pounds and also includes the original £1 paid to play the game, so in the example given the player actually wins £9.
+
+Find the maximum prize fund that should be allocated to a single game in which fifteen turns are played.
+
+====================================================
+124.py: Ordered radicals
+
+The radical of n, rad(n), is the product of the distinct prime 
+factors of n. 
+For example, 504 = 23 x 32 x 7, so rad(504) = 2 x 3 x 7 = 42.
+
+If we calculate rad(n) for 1 ≤ n ≤ 10, then sort them on rad(n), and 
+sorting on n if the radical values are equal, we get:
+
+Let E(k) be the kth element in the sorted n column; for example, E(4) 
+= 8 and E(6) = 9.
+
+If rad(n) is sorted for 1 ≤ n ≤ 100000, find E(10000).
+
+====================================================
+125.py: Palindromic sums
+
+The palindromic number 595 is interesting because it can be written 
+as the sum of consecutive squares: 62 + 72 + 82 + 92 + 102 + 112 + 
+122.
+
+There are exactly eleven palindromes below one-thousand that can be 
+written as consecutive square sums, and the sum of these palindromes 
+is 4164. 
+Note that 1 = 02 + 12 has not been included as this problem is 
+concerned with the squares of positive integers.
+
+Find the sum of all the numbers less than 10^8 that are both 
+palindromic and can be written as the sum of consecutive squares.
+
+====================================================
+131.py: Prime cube partnership
+
+There are some prime values, p, for which there exists a positive integer, n, such that the expression n^3 + n^2p is a perfect cube.
+
+For example, when p = 19, 8^3 + 8^2x19 = 12^3.
+
+What is perhaps most surprising is that for each prime with this property the value of n is unique, and there are only four such primes below one-hundred.
+
+How many primes below one million have this remarkable property?
+
+====================================================
+139.py: Pythagorean Tiling
+
+Let (a, b, c) represent the three sides of a right angle triangle with integral length sides. It is possible to place four such triangles together to form a square with length c.
+
+For example, (3, 4, 5) triangles can be placed together to form a 5 by 5 square with a 1 by 1 hole in the middle and it can be seen that the 5 by 5 square can be tiled with twenty-five 1 by 1 squares.
+
+However, if (5, 12, 13) triangles were used then the hole would measure 7 by 7 and these could not be used to tile the 13 by 13 square.
+
+Given that the perimeter of the right triangle is less than one-hundred million, how many Pythagorean triangles would allow such a tiling to take place?
+
+====================================================
+142.py: Perfect Square Collection
+
+Find the smallest x + y + z with integers x > y > z > 0 such that 
+x + y, x - y, x + z, x - z, y + z, y - z are all perfect squares.
+
+====================================================
+145.py: How many reversible numbers are there below one-billion?
+
+Some positive integers n have the property that the sum 
+[ n + reverse(n) ] consists entirely of odd (decimal) digits. 
+For instance, 36 + 63 = 99 and 409 + 904 = 1313. 
+We will call such numbers reversible; so 36, 63, 409, and 904 
+are reversible. Leading zeroes are not allowed in either n 
+or reverse(n).
+
+There are 120 reversible numbers below one-thousand.
+
+How many reversible numbers are there below one-billion (10^9)?
+
+====================================================
+205.py: Dice Game
+
+Peter has nine four-sided (pyramidal) dice, each with faces numbered 1, 2, 3, 4.
+Colin has six six-sided (cubic) dice, each with faces numbered 1, 2, 3, 4, 5, 6.
+
+Peter and Colin roll their dice and compare totals: the highest total wins. The result is a draw if the totals are equal.
+
+What is the probability that Pyramidal Pete beats Cubic Colin? Give your answer rounded to seven decimal places in the form 0.abcdefg
+
+====================================================
+206.py: Concealed Square
+
+Find the unique positive integer whose square has the form 
+1_2_3_4_5_6_7_8_9_0, where each “_” is a single digit.
+
+====================================================
+179.py: Consecutive positive divisors
+
+Find the number of integers 1 < n < 10^7, for which n and n + 1 have the same number of positive divisors. For example, 14 has the positive divisors 1, 2, 7, 14 while 15 has 1, 3, 5, 15.
+
+====================================================
+75_todo.py: Singular integer right triangles
+
+It turns out that 12 cm is the smallest length of wire that can be bent to 
+form an integer sided right angle triangle in exactly one way, but there 
+are many more examples.
 
 12 cm: (3,4,5)
 24 cm: (6,8,10)
@@ -439,14 +1348,32 @@ It turns out that 12 cm is the smallest length of wire that can be bent to form 
 40 cm: (8,15,17)
 48 cm: (12,16,20)
 
-In contrast, some lengths of wire, like 20 cm, cannot be bent to form an integer sided right angle triangle, and other lengths allow more than one solution to be found; for example, using 120 cm it is possible to form exactly three different integer sided right angle triangles.
+In contrast, some lengths of wire, like 20 cm, cannot be bent to form an 
+integer sided right angle triangle, and other lengths allow more than one 
+solution to be found; for example, using 120 cm it is possible to form 
+exactly three different integer sided right angle triangles.
 
 120 cm: (30,40,50), (20,48,52), (24,45,51)
 
-Given that L is the length of the wire, for how many values of L ≤ 1,500,000 can exactly one integer sided right angle triangle be formed?
+Given that L is the length of the wire, for how many values of L ≤ 1500000 
+can exactly one integer sided right angle triangle be formed?
 
 ====================================================
-76.py: 
+76_todo.py: Counting summations
+
+It is possible to write five as a sum in exactly six different ways:
+
+4 + 1
+3 + 2
+3 + 1 + 1
+2 + 2 + 1
+2 + 1 + 1 + 1
+1 + 1 + 1 + 1 + 1
+
+How many different ways can one hundred be written as a sum of at least two 
+positive integers?
+--------------------------------------------------------------------
+
 
 f(x) = 2_sum + f(x-1)
 7 = 6 + 1 ; 5 + 2; 4 + 3; (3 + 4...)                    3
@@ -495,107 +1422,58 @@ f(x) = 2_sum + f(x-1)
 1 + 1
 
 ====================================================
-77.py: 
+94_todo.py: Almost equilateral triangles
 
-It is possible to write ten as the sum of primes in exactly five different ways:
+It is easily proved that no equilateral triangle exists with integral 
+length sides and integral area. 
+However, the almost equilateral triangle 5-5-6 has an area of 12 square 
+units.
 
-7 + 3
-5 + 5
-5 + 3 + 2
-3 + 3 + 2 + 2
-2 + 2 + 2 + 2 + 2
+We shall define an almost equilateral triangle to be a triangle for which 
+two sides are equal and the third differs by no more than one unit.
 
-What is the first value which can be written as the sum of primes in over five thousand different ways?
-
-====================================================
-79.py: Passcode derivation
-
-A common security method used for online banking is to 
-ask the user for three random characters from a passcode. 
-For example, if the passcode was 531278, they may ask for 
-the 2nd, 3rd, and 5th characters; the expected reply would be: 317.
-
-The text file, keylog.txt, contains fifty successful login attempts.
-
-Given that the three characters are always asked for in 
-order, analyse the file so as to determine the shortest 
-possible secret passcode of unknown length.
+Find the sum of the perimeters of all almost equilateral triangles with 
+integral side lengths and area and whose perimeters do not exceed one 
+billion (1,000,000,000).
 
 ====================================================
-85.py: 
+87_todo.py: Prime power triples
 
-By counting carefully it can be seen that a rectangular grid measuring 3 by 2 contains eighteen rectangles:
+The smallest number expressible as the sum of a prime square, prime 
+cube, and prime fourth power is 28. In fact, there are exactly four 
+numbers below fifty that can be expressed in such a way:
 
-Although there exists no rectangular grid that contains exactly two million rectangles, find the area of the grid with the nearest solution.
+28 = 2^2 + 2^3 + 2^4
+33 = 3^2 + 2^3 + 2^4
+49 = 5^2 + 2^3 + 2^4
+47 = 2^2 + 3^3 + 2^4
 
-====================================================
-86.py: 
-
-A spider, S, sits in one corner of a cuboid room, measuring 6 by 5 by 3, and a fly, F, sits in the opposite corner. 
-By travelling on the surfaces of the room the shortest "straight line" distance from S to F is 10 and the path is shown on the diagram.
-
-However, there are up to three "shortest" path candidates for any given cuboid and the shortest route doesn't always have integer length.
-
-It can be shown that there are exactly 2060 distinct cuboids, ignoring rotations, with integer dimensions, 
-up to a maximum size of M by M by M, for which the shortest route has integer length when M = 100. 
-This is the least value of M for which the number of solutions first exceeds two thousand; 
-the number of solutions when M = 99 is 1975.
-
-Find the least value of M such that the number of solutions first exceeds one million.
+How many numbers below fifty million can be expressed as the sum of a 
+prime square, prime cube, and prime fourth power?
 
 ====================================================
-87.py: 
+86_todo.py: Cuboid route
 
-The smallest number expressible as the sum of a prime square, prime cube, and prime fourth power is 28. In fact, there are exactly four numbers below fifty that can be expressed in such a way:
+A spider, S, sits in one corner of a cuboid room, measuring 6 by 5 by 
+3, and a fly, F, sits in the opposite corner. 
+By travelling on the surfaces of the room the shortest "straight line" 
+distance from S to F is 10 and the path is shown on the diagram.
 
-28 = 22 + 23 + 24
-33 = 32 + 23 + 24
-49 = 52 + 23 + 24
-47 = 22 + 33 + 24
+However, there are up to three "shortest" path candidates for any given 
+cuboid and the shortest route doesn't always have integer length.
 
-How many numbers below fifty million can be expressed as the sum of a prime square, prime cube, and prime fourth power?
+It can be shown that there are exactly 2060 distinct cuboids, ignoring 
+rotations, with integer dimensions, 
+up to a maximum size of M by M by M, for which the shortest route has 
+integer length when M = 100. 
+This is the least value of M for which the number of solutions first 
+exceeds two thousand; the number of solutions when M = 99 is 1975.
 
-====================================================
-94.py: 
-
-It is easily proved that no equilateral triangle exists with integral length sides and integral area. 
-However, the almost equilateral triangle 5-5-6 has an area of 12 square units.
-
-We shall define an almost equilateral triangle to be a triangle for which two sides are equal 
-and the third differs by no more than one unit.
-
-Find the sum of the perimeters of all almost equilateral triangles with integral side lengths 
-and area and whose perimeters do not exceed one billion (1,000,000,000).
+Find the least value of M such that the number of solutions first 
+exceeds one million.
 
 ====================================================
-95.py: 
-
-The proper divisors of a number are all the divisors excluding the number itself. For example, the proper divisors of 28 are 1, 2, 4, 7, and 14. As the sum of these divisors is equal to 28, we call it a perfect number.
-
-Interestingly the sum of the proper divisors of 220 is 284 and the sum of the proper divisors of 284 is 220, forming a chain of two numbers. For this reason, 220 and 284 are called an amicable pair.
-
-Perhaps less well known are longer chains. For example, starting with 12496, we form a chain of five numbers:
-
-12496 → 14288 → 15472 → 14536 → 14264 (→ 12496 → ...)
-
-Since this chain returns to its starting point, it is called an amicable chain.
-
-Find the smallest member of the longest amicable chain with no element exceeding one million.
-
-====================================================
-96.py: 
-
-Su Doku (Japanese meaning number place) is the name given to a popular puzzle concept. Its origin is unclear, but credit must be attributed to Leonhard Euler who invented a similar, and much more difficult, puzzle idea called Latin Squares. The objective of Su Doku puzzles, however, is to replace the blanks (or zeros) in a 9 by 9 grid in such that each row, column, and 3 by 3 box contains each of the digits 1 to 9. Below is an example of a typical starting puzzle grid and its solution grid.
-
-p096_1.png     p096_2.png
-A well constructed Su Doku puzzle has a unique solution and can be solved by logic, although it may be necessary to employ "guess and test" methods in order to eliminate options (there is much contested opinion over this). The complexity of the search determines the difficulty of the puzzle; the example above is considered easy because it can be solved by straight forward direct deduction.
-
-The 6K text file, sudoku.txt (right click and 'Save Link/Target As...'), contains fifty different Su Doku puzzles ranging in difficulty, but all with unique solutions (the first puzzle in the file is the example above).
-
-By solving all fifty puzzles find the sum of the 3-digit numbers found in the top left corner of each solution grid; for example, 483 is the 3-digit number found in the top left corner of the solution grid above.
-
-====================================================
-99.py: 
+99_todo.py: Largest exponential	
 
 Comparing two numbers written in index form like 2**11 and 3**7 is not difficult, 
 as any calculator would confirm that 2**11 = 2048 < 3**7 = 2187.
@@ -610,71 +1488,158 @@ determine which line number has the greatest numerical value.
 NOTE: The first two lines in the file represent the numbers in the example given above.
 
 ====================================================
-145.py: How many reversible numbers are there below one-billion?
+51_todo.py: Prime digit replacements
 
-Some positive integers n have the property that the sum 
-[ n + reverse(n) ] consists entirely of odd (decimal) digits. 
-For instance, 36 + 63 = 99 and 409 + 904 = 1313. 
-We will call such numbers reversible; so 36, 63, 409, and 904 
-are reversible. Leading zeroes are not allowed in either n 
-or reverse(n).
+By replacing the 1st digit of the 2-digit number *3, 
+it turns out that six of the nine possible values: 
+13, 23, 43, 53, 73, and 83, are all prime.
 
-There are 120 reversible numbers below one-thousand.
+By replacing the 3rd and 4th digits of 56**3 with the 
+same digit, this 5-digit number is the first example having 
+seven primes among the ten generated numbers, 
+yielding the family: 56003, 56113, 56333, 56443, 56663, 56773,
+and 56993. Consequently 56003, being the first member of this 
+family, is the smallest prime with this property.
 
-How many reversible numbers are there below one-billion (10^9)?
-
-====================================================
-89.py: Roman numerals
-
-For a number written in Roman numerals to be considered 
-valid there are basic rules which must be followed. 
-Even though the rules allow some numbers to be expressed 
-in more than one way there is always a "best" way of 
-writing a particular number.
-
-For example, it would appear that there are at least six 
-ways of writing the number sixteen:
-
-IIIIIIIIIIIIIIII
-VIIIIIIIIIII
-VVIIIIII
-XIIIIII
-VVVI
-XVI
-
-However, according to the rules only XIIIIII and XVI are valid, 
-and the last example is considered to be the most efficient, 
-as it uses the least number of numerals.
-
-The 11K text file, roman.txt (right click and 'Save Link/Target 
-As...'), contains one thousand numbers written in valid, but not 
-necessarily minimal, Roman numerals; see About... Roman Numerals for the definitive rules for this problem.
-
-Find the number of characters saved by writing each of these in 
-their minimal form.
-
-Note: You can assume that all the Roman numerals in the file 
-contain no more than four consecutive identical units.
-
-TODO: https://projecteuler.net/about=roman_numerals
+Find the smallest prime which, by replacing part of the number 
+(not necessarily adjacent digits) with the same digit, is part 
+of an eight prime value family.
 
 ====================================================
-113.py: Non-bouncy numbers
+64_todo.py: Odd period square roots
 
-Working from left-to-right if no digit is exceeded by the digit to its left it is called an increasing number; for example, 134468.
 
-Similarly if no digit is exceeded by the digit to its right it is called a decreasing number; for example, 66420.
-
-We shall call a positive integer that is neither increasing nor decreasing a "bouncy" number; for example, 155349.
-
-As n increases, the proportion of bouncy numbers below n increases such that there are only 12951 numbers below one-million that are not bouncy and only 277032 non-bouncy numbers below 1010.
-
-How many numbers below a googol (10100) are not bouncy?
 
 ====================================================
-03.py: Largest prime factor
+66_todo.py: Diophantine equation
+
+Consider quadratic Diophantine equations of the form:
+
+x^2 - Dy^2 = 1
+
+For example, when D=13, the minimal solution in x is 6492 - 13x1802 = 1.
+
+It can be assumed that there are no solutions in positive integers when D is square.
+
+By finding minimal solutions in x for D = {2, 3, 5, 6, 7}, we obtain the following:
+
+3^2 - 2 x 2^2 = 1
+2^2 - 3 x 1^2 = 1
+9^2 - 5 x 4^2 = 1
+5^2 - 6 x 2^2 = 1
+8^2 - 7 x 3^2 = 1
+
+Hence, by considering minimal solutions in x for D ≤ 7, the largest x is obtained when D=5.
+
+Find the value of D ≤ 1000 in minimal solutions of x for which the largest value of x is obtained.
+
+====================================================
+146_todo.py: Investigating a Prime Pattern
+
+The smallest positive integer n for which the numbers n^2+1, n^2+3, n^2+7, n^2+9, n^2+13, and n^2+27 are consecutive primes is 10. The sum of all such integers n below one-million is 1242490.
+
+What is the sum of all such integers n below 150 million?
+
+====================================================
+381_todo.py: (prime-k) factorial
+
+For a prime p let S(p) = (∑ (p-k)!) mod(p) for 1 ≤ k ≤ 5.
+
+For example, if p=7,
+(7-1)! + (7-2)! + (7-3)! + (7-4)! + (7-5)! = 6! + 5! + 4! + 3! + 2! = 720+120+24+6+2 = 872.
+As 872 mod(7) = 4, S(7) = 4.
+
+It can be verified that ∑ S(p) = 480 for 5 ≤ p < 100.
+
+Find ∑ S(p) for 5 ≤ p < 10^8.
+
+====================================================
+684_todo.py: Inverse Digit Sum
+
+https://projecteuler.net/problem=684
+
+====================================================
+686_todo.py: Powers of Two
+
+2^7 = 128 is the first power of two whose leading digits are "12".
+The next power of two whose leading digits are "12" is 2^80.
+
+Define p(L, n) to be the nth-smallest value of j such that the base 10 representation of 2^j begins with the digits of L.
+So p(12, 1) = 7 and p(12, 2) = 80.
+
+You are also given that p(123, 45) = 12710.
+
+Find p(123, 678910).
+
+====================================================
+719_todo.py: Number Splitting
+
+We define an S-number to be a natural number, n, that is a perfect square and its square root can be obtained by splitting the decimal representation of n into 2 or more numbers then adding the numbers.
+
+For example, 81 is an S-number because sqrt(81) = 8 + 1.
+6724 is an S-number: sqrt(6724) = 6 + 72 + 4.
+8281 is an S-number: sqrt(8281) = 8 + 2 .
+9801 is an S-number: .
+
+Further we define T(N) to be the sum of all S numbers n <= N. You are given T(10^4) = 41333.
+
+Find T(10^12) """
 
 
-The prime factors of 13195 are 5, 7, 13 and 29.
-What is the largest prime factor of the number 600851475143 ?
+from function_collection.main import timer_wrapper
+from math import sqrt
+
+
+def generate_all_char_combinations(x: int, acc=[]) -> list[list[int]]:
+    """ 
+    6724
+    6 7 2 4
+    6 72 4
+    6 724
+    67 2 4
+    67 24
+    672 4
+    """
+    ch = str(x)
+    pos = acc
+    if len(str(x)) == 2:
+        return pos  # [ch[0], ch[1]]
+    for i in range(1, len(ch)):
+        a = ch[:i]
+        b = ch[i:]
+        print(f"{i = }: {a = }, {b = }")
+        pos.append([a, generate_all_char_combinations(int(b))])
+    return pos
+
+
+def add_digits_all_combination(x: int) -> int:
+    return sum([int(ch) for ch in str(x)])
+
+
+def s_check(x: int) -> bool:
+    """ x is expected to be a square number """
+    return int(sqrt(x)) in list(set(map(sum, generate_all_char_combinations)))
+
+
+if __name__ == '__main__':
+    testing = True
+
+    if testing:
+        # print(generate_all_char_combinations(672))
+        a = generate_all_char_combinations(6724)
+        # print(generate_all_char_combinations(67245))
+        print(f"{len(a) = }")
+        for i in generate_all_char_combinations(6724):
+            print(i)
+
+====================================================
+725_todo.py: Digit sum numbers
+
+A number where one digit is the sum of the other digits is called a digit sum number or DS-number for short. For example, 352, 3003 and 32812 are DS-numbers.
+
+We define S(n) to be the sum of all DS-numbers of n digits or less.
+
+You are given S(3)=63270 and S(7)=85499991450.
+
+Find S(2020). Give your answer modulo 10^16 (-> last 16 digits).
 
