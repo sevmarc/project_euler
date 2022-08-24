@@ -10,13 +10,13 @@ from function_collection.main import is_prime, timer_wrapper, generate_primes
 (n^2 + 1) is prime=odd -> n^2 is even -> n is even
 """
 
-def solution():
-    max_lim = 10000
+
+def solution(max_lim: int = int(150e6)) -> int:
     ns = []
     for n in range(2, max_lim, 2):
         all_primes = True
-        for j in [n*n + 1, 
-                  n*n + 3, 
+        for j in [n*n + 1,
+                  n*n + 3,
                   n*n + 7,
                   n*n + 9,
                   n*n + 13,
@@ -26,9 +26,9 @@ def solution():
                 break
         if all_primes:
             ns.append(n)
-            print(n)
-    print(sum(ns))
+    return sum(ns)
 
-timer_wrapper(solution)
-timer_wrapper(generate_primes, 10000)
-# timer_wrapper(solution)
+
+if __name__ == '__main__':
+    result = timer_wrapper(solution)
+    print(f"{result = }")
